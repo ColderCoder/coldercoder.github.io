@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="google-site-verification" content="kLDn9a7ZvPJt3MBwafuCwGPkzsd3SRnOKYyfJlXBAWQ" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="编辑环境变量并移动    此电脑 -&gt; 属性 -&gt; 高级系统设置 -&gt; 高级 -&gt; 环境变量 或者Win+S搜索”PATH”进入“编辑系统环境变量”。   根据安装时选择的为所有用户安装&#x2F;为当前用户安装，分别查看系统PATH&#x2F;用户PATH, 找到对应路径，移动到想要的目录，并修改相关PATH条目为新的位置即可。    echo %PATH% 或者 重启计算机 使对PATH">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Windows 迁移Anaconda到其他分区">
+<meta property="og:url" content="https://coldercoder.github.io/Tech/move-conda-windows/">
+<meta property="og:site_name" content="ColderCoder&#39;s Blog">
+<meta property="og:description" content="编辑环境变量并移动    此电脑 -&gt; 属性 -&gt; 高级系统设置 -&gt; 高级 -&gt; 环境变量 或者Win+S搜索”PATH”进入“编辑系统环境变量”。   根据安装时选择的为所有用户安装&#x2F;为当前用户安装，分别查看系统PATH&#x2F;用户PATH, 找到对应路径，移动到想要的目录，并修改相关PATH条目为新的位置即可。    echo %PATH% 或者 重启计算机 使对PATH">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-10-14T06:13:26.000Z">
+<meta property="article:modified_time" content="2020-10-26T15:30:01.048Z">
+<meta property="article:author" content="ColderCoder">
+<meta property="article:tag" content="trick">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/coldercoder/coldercoder.github.io/images/ColderCoder50.jpg">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/coldercoder/coldercoder.github.io/images/ColderCoder50.jpg" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="https://cdn.jsdelivr.net/gh/coldercoder/coldercoder.github.io/images/ColderCoder50.jpg">
+        
+      
+    
+    <!-- title -->
+    <title>Windows 迁移Anaconda到其他分区</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/coldercoder/coldercoder.github.io/css/style.css">
+
+    <!-- persian styles -->
+    
+      
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/coldercoder/coldercoder.github.io/css/rtl.css">
+
+    
+    <!-- rss -->
+    
+    
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/categories/">Category</a></li>
+         
+          <li><a href="/archives/">Archive</a></li>
+         
+          <li><a href="/about/">About</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/Tech/move-wsl2/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/Music/cuijian-interview/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://coldercoder.github.io/Tech/move-conda-windows/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://coldercoder.github.io/Tech/move-conda-windows/&text=Windows 迁移Anaconda到其他分区"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://coldercoder.github.io/Tech/move-conda-windows/&title=Windows 迁移Anaconda到其他分区"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://coldercoder.github.io/Tech/move-conda-windows/&is_video=false&description=Windows 迁移Anaconda到其他分区"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Windows 迁移Anaconda到其他分区&body=Check out this article: https://coldercoder.github.io/Tech/move-conda-windows/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://coldercoder.github.io/Tech/move-conda-windows/&title=Windows 迁移Anaconda到其他分区"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://coldercoder.github.io/Tech/move-conda-windows/&title=Windows 迁移Anaconda到其他分区"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://coldercoder.github.io/Tech/move-conda-windows/&title=Windows 迁移Anaconda到其他分区"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://coldercoder.github.io/Tech/move-conda-windows/&title=Windows 迁移Anaconda到其他分区"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://coldercoder.github.io/Tech/move-conda-windows/&name=Windows 迁移Anaconda到其他分区&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://coldercoder.github.io/Tech/move-conda-windows/&t=Windows 迁移Anaconda到其他分区"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Windows 迁移Anaconda到其他分区
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">ColderCoder</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2020-10-14T06:13:26.000Z" itemprop="datePublished">2020-10-14</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/Tech/">Tech</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link-link" href="/tags/trick/" rel="tag">trick</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <ol>
+<li><p><strong>编辑环境变量并移动</strong>  </p>
+<p> <code>此电脑 -&gt; 属性 -&gt; 高级系统设置 -&gt; 高级 -&gt; 环境变量</code> 或者Win+S搜索”PATH”进入“编辑系统环境变量”。 </p>
+<p> 根据安装时选择的为所有用户安装/为当前用户安装，分别查看系统PATH/用户PATH, 找到对应路径，移动到想要的目录，并修改相关PATH条目为新的位置即可。  </p>
+<p> <code>echo %PATH%</code> 或者 重启计算机 使对PATH的更改生效。  </p>
+<p> 执行<code>conda -V</code>检查是否迁移成功。  </p>
+</li>
+<li><p><strong>重装pip</strong>  </p>
+<p> 重装pip以解决pip Fatal error in launcher 错误:  </p>
+<p> <code>python -m pip uninstall pip</code> 卸载pip,<br> cd 到 Anaconda3\Scripts 目录下，<br> 执行 <code>easy_install.exe pip</code> 以安装pip.</p>
+</li>
+<li><p><strong>后续</strong></p>
+<p> 一怒之下卸载了，安装在WSL2里。那样也方便环境迁移，带上一个VHDX文件就走，也防止系统崩溃不得不格式化C盘的狼狈。<br> 白忙活（笑）</p>
+</li>
+</ol>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/categories/">Category</a></li>
+         
+          <li><a href="/archives/">Archive</a></li>
+         
+          <li><a href="/about/">About</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://coldercoder.github.io/Tech/move-conda-windows/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://coldercoder.github.io/Tech/move-conda-windows/&text=Windows 迁移Anaconda到其他分区"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://coldercoder.github.io/Tech/move-conda-windows/&title=Windows 迁移Anaconda到其他分区"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://coldercoder.github.io/Tech/move-conda-windows/&is_video=false&description=Windows 迁移Anaconda到其他分区"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Windows 迁移Anaconda到其他分区&body=Check out this article: https://coldercoder.github.io/Tech/move-conda-windows/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://coldercoder.github.io/Tech/move-conda-windows/&title=Windows 迁移Anaconda到其他分区"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://coldercoder.github.io/Tech/move-conda-windows/&title=Windows 迁移Anaconda到其他分区"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://coldercoder.github.io/Tech/move-conda-windows/&title=Windows 迁移Anaconda到其他分区"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://coldercoder.github.io/Tech/move-conda-windows/&title=Windows 迁移Anaconda到其他分区"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://coldercoder.github.io/Tech/move-conda-windows/&name=Windows 迁移Anaconda到其他分区&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://coldercoder.github.io/Tech/move-conda-windows/&t=Windows 迁移Anaconda到其他分区"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2018-2021
+    ColderCoder
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/categories/">Category</a></li>
+         
+          <li><a href="/archives/">Archive</a></li>
+         
+          <li><a href="/about/">About</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/coldercoder/coldercoder.github.io/lib/font-awesome/css/all.min.css">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/coldercoder/coldercoder.github.io/lib/justified-gallery/css/justifiedGallery.min.css">
+
+
+    <!-- jquery -->
+
+<script src="https://cdn.jsdelivr.net/gh/coldercoder/coldercoder.github.io/lib/jquery/jquery.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/gh/coldercoder/coldercoder.github.io/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+
+<!-- clipboard -->
+
+  
+<script src="https://cdn.jsdelivr.net/gh/coldercoder/coldercoder.github.io/lib/clipboard/clipboard.min.js"></script>
+
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="https://cdn.jsdelivr.net/gh/coldercoder/coldercoder.github.io/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PKMLYZ9MYX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-PKMLYZ9MYX');
+    </script>
+
+<!-- Baidu Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'colderblog';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+
+</body>
+</html>

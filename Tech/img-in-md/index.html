@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="google-site-verification" content="kLDn9a7ZvPJt3MBwafuCwGPkzsd3SRnOKYyfJlXBAWQ" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="简单记录一下 Markdown内嵌图片 的做法   在Markdown文件内插入图片，我们通常用 ![img label](URL Description)。   URL指向的可以是本地地址或者服务器路径，但会造成可移植性问题。比较普遍的方法是将图片托管在图床上。   图片经压缩后转换为Data URL内嵌在文档内，由编译器&#x2F;浏览器渲染的方案，比起存放在图床，要令人安心一些。  步骤如下：  用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Image in Markdown">
+<meta property="og:url" content="https://coldercoder.github.io/Tech/img-in-md/">
+<meta property="og:site_name" content="ColderCoder&#39;s Blog">
+<meta property="og:description" content="简单记录一下 Markdown内嵌图片 的做法   在Markdown文件内插入图片，我们通常用 ![img label](URL Description)。   URL指向的可以是本地地址或者服务器路径，但会造成可移植性问题。比较普遍的方法是将图片托管在图床上。   图片经压缩后转换为Data URL内嵌在文档内，由编译器&#x2F;浏览器渲染的方案，比起存放在图床，要令人安心一些。  步骤如下：  用">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-04-27T01:40:29.000Z">
+<meta property="article:modified_time" content="2020-10-26T18:28:00.581Z">
+<meta property="article:author" content="ColderCoder">
+<meta property="article:tag" content="trick">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/coldercoder/coldercoder.github.io/images/ColderCoder50.jpg">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/coldercoder/coldercoder.github.io/images/ColderCoder50.jpg" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="https://cdn.jsdelivr.net/gh/coldercoder/coldercoder.github.io/images/ColderCoder50.jpg">
+        
+      
+    
+    <!-- title -->
+    <title>Image in Markdown</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/coldercoder/coldercoder.github.io/css/style.css">
+
+    <!-- persian styles -->
+    
+      
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/coldercoder/coldercoder.github.io/css/rtl.css">
+
+    
+    <!-- rss -->
+    
+    
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/categories/">Category</a></li>
+         
+          <li><a href="/archives/">Archive</a></li>
+         
+          <li><a href="/about/">About</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/Life/pingyao-record-store-1/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/Music/baba-oriley/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://coldercoder.github.io/Tech/img-in-md/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://coldercoder.github.io/Tech/img-in-md/&text=Image in Markdown"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://coldercoder.github.io/Tech/img-in-md/&title=Image in Markdown"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://coldercoder.github.io/Tech/img-in-md/&is_video=false&description=Image in Markdown"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Image in Markdown&body=Check out this article: https://coldercoder.github.io/Tech/img-in-md/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://coldercoder.github.io/Tech/img-in-md/&title=Image in Markdown"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://coldercoder.github.io/Tech/img-in-md/&title=Image in Markdown"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://coldercoder.github.io/Tech/img-in-md/&title=Image in Markdown"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://coldercoder.github.io/Tech/img-in-md/&title=Image in Markdown"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://coldercoder.github.io/Tech/img-in-md/&name=Image in Markdown&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://coldercoder.github.io/Tech/img-in-md/&t=Image in Markdown"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Image in Markdown
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">ColderCoder</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2019-04-27T01:40:29.000Z" itemprop="datePublished">2019-04-27</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/Tech/">Tech</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link-link" href="/tags/trick/" rel="tag">trick</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>简单记录一下 Markdown内嵌图片 的做法  </p>
+<p>在Markdown文件内插入图片，我们通常用 <code>![img label](URL Description)</code>。  </p>
+<p>URL指向的可以是本地地址或者服务器路径，但会造成可移植性问题。<br>比较普遍的方法是将图片托管在图床上。  </p>
+<p>图片经压缩后转换为Data URL内嵌在文档内，由编译器/浏览器渲染的方案，比起存放在图床，要令人安心一些。</p>
+<hr>
+<p>步骤如下：</p>
+<ol>
+<li><p>用 <a target="_blank" rel="noopener" href="https://squoosh.app/">Squoosh</a> 或者其他图片压缩工具先将图片压缩至网络传输友好的程度.</p>
+</li>
+<li><p>用 <a target="_blank" rel="noopener" href="https://ezgif.com/image-to-datauri">ezgif.com</a> 或其他任意转换工具将图片转换至 Data URL 形式。</p>
+</li>
+<li><p>像这样插入在Markdown文档内：<br><code>![img label](data:image/...)</code>  </p>
+</li>
+</ol>
+<p>Base64编码一般很长，为了易读性，可将DataURL定义放在文末，在文中引用，如下所示：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">img label</span>][<span class="symbol">img ref</span>]</span><br><span class="line">......</span><br><span class="line">[<span class="symbol">img ref</span>]:<span class="link">data:image/...</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<ul>
+<li>Data URL 推荐阅读：<br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/data_URIs">MDN web docs - Data URLs</a><br><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Data_URI_scheme">Wikipedia - data URI scheme</a></li>
+</ul>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/categories/">Category</a></li>
+         
+          <li><a href="/archives/">Archive</a></li>
+         
+          <li><a href="/about/">About</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://coldercoder.github.io/Tech/img-in-md/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://coldercoder.github.io/Tech/img-in-md/&text=Image in Markdown"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://coldercoder.github.io/Tech/img-in-md/&title=Image in Markdown"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://coldercoder.github.io/Tech/img-in-md/&is_video=false&description=Image in Markdown"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Image in Markdown&body=Check out this article: https://coldercoder.github.io/Tech/img-in-md/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://coldercoder.github.io/Tech/img-in-md/&title=Image in Markdown"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://coldercoder.github.io/Tech/img-in-md/&title=Image in Markdown"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://coldercoder.github.io/Tech/img-in-md/&title=Image in Markdown"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://coldercoder.github.io/Tech/img-in-md/&title=Image in Markdown"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://coldercoder.github.io/Tech/img-in-md/&name=Image in Markdown&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://coldercoder.github.io/Tech/img-in-md/&t=Image in Markdown"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2018-2021
+    ColderCoder
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/categories/">Category</a></li>
+         
+          <li><a href="/archives/">Archive</a></li>
+         
+          <li><a href="/about/">About</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/coldercoder/coldercoder.github.io/lib/font-awesome/css/all.min.css">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/coldercoder/coldercoder.github.io/lib/justified-gallery/css/justifiedGallery.min.css">
+
+
+    <!-- jquery -->
+
+<script src="https://cdn.jsdelivr.net/gh/coldercoder/coldercoder.github.io/lib/jquery/jquery.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/gh/coldercoder/coldercoder.github.io/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+
+<!-- clipboard -->
+
+  
+<script src="https://cdn.jsdelivr.net/gh/coldercoder/coldercoder.github.io/lib/clipboard/clipboard.min.js"></script>
+
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="https://cdn.jsdelivr.net/gh/coldercoder/coldercoder.github.io/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PKMLYZ9MYX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-PKMLYZ9MYX');
+    </script>
+
+<!-- Baidu Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'colderblog';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+
+</body>
+</html>

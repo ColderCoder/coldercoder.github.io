@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>WSL2 设置代理</title>
+      <link href="uncategorized/wsl-proxy/"/>
+      <url>uncategorized/wsl-proxy/</url>
+      
+        <content type="html"><![CDATA[<p>在当前用户的 .bashrc 添加如下语句:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> Windows_ip=$(cat /etc/resolv.conf |grep -oP <span class="string">&#x27;(?&lt;=nameserver\ ).*&#x27;</span>)</span><br><span class="line"><span class="built_in">export</span> ALL_PROXY=http://<span class="variable">$Windows_ip</span>:&lt;port&gt;</span><br><span class="line"><span class="built_in">export</span> HTTP_PROXY=<span class="variable">$ALL_PROXY</span></span><br><span class="line"><span class="built_in">export</span> http_proxy=<span class="variable">$ALL_PROXY</span></span><br><span class="line"><span class="built_in">export</span> HTTPS_PROXY=<span class="variable">$ALL_PROXY</span></span><br><span class="line"><span class="built_in">export</span> https_proxy=<span class="variable">$ALL_PROX</span></span><br></pre></td></tr></table></figure><p>将<code>&lt;port&gt;</code>替换为宿主机http代理的端口即可。</p><p>关闭当前session重新登陆该用户，或者 <code>source .bashrc</code> 使配置立即生效。</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Shiori 网络书签</title>
+      <link href="Tech/shiori/"/>
+      <url>Tech/shiori/</url>
+      
+        <content type="html"><![CDATA[<p>懒癌作祟，很想要一个read-later解决方案，但又对<a href="https://getpocket.com/">pocket</a>之流提不起兴致，要是源站挂了，免费版用户保存的书签也随之404，而付费订阅的价格对轻度用户来说又有点离谱。类似于<a href="https://archive.org/">WayBack Machine</a>的服务也不适合个人收藏阅读。</p><p><a href="https://github.com/go-shiori/shiori">Shiori</a>是个不错的解决方案，用户能够自行部署类pocket的应用。</p><p><img src="https://cdn.jsdelivr.net/gh/coldercoder/coldercoder.github.io/images/shiori-1.jpg"></p><p>项目仓库的README还提供了Heroku一键部署按钮，十分方便。<br>（heroku登录地址可能在中国大陆被封锁）</p><p>Heroku会定期重启Dyno，届时所有数据将被重置，使用PostgreSQL以解决问题：</p><p>在 Resource-Add-ons 中添加 Heroku Postgres，在 Postgres 的 Settings 下找到 Database Credentials，并参照<a href="https://github.com/go-shiori/shiori/wiki/Configuration#postgresql">这个指南</a>在项目的 Setting - Config Vars 下填写相应字段。</p><p>Web界面的初始账号密码是 shiori/gopher，登陆后创建用户，新建的第一个用户为 owner，同时初始账号被禁用。</p><p>Shiori提供了Chrome/Firefox插件，Firefox在<a href="https://github.com/go-shiori/shiori-web-ext/releases">release页面</a>点击.xpi文件即可安装；Chrome下载Source Code后解压，扩展程序-开发者模式-加载已解压的扩展程序。</p><p>安装插件后在扩展程序选项中填写服务端地址、用户名、密码，完成配置。</p><hr><p><a href="https://github.com/go-shiori/shiori">项目地址</a><br><a href="https://github.com/go-shiori/shiori/wiki">项目wiki</a><br><a href="https://hub.docker.com/r/radhifadlillah/shiori">Docker Hub</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Tech </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> heroku </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>告别2020</title>
+      <link href="Life/2020ends/"/>
+      <url>Life/2020ends/</url>
+      
+        <content type="html"><![CDATA[<p>2020逾<a href="https://zh.m.wiktionary.org/zh/%E5%BC%B1%E5%86%A0">弱冠</a>。冠不敢当，发亦未束，春去冬至，忽然而已。</p><p>向来不甚关注节日种种，也渐渐淡漠了仪式感。节日皆藉口，依赖藉口，行事通达，倒也妙哉。奈何平淡无事，便也懒得劳神。</p><p>十八那年高中行成人礼。以如今之眼光回望当时，懵懂无知，愧为成人，又何必行成人礼。如此说不免任性。成人之礼，不仅是对年龄的承认，更是对未来的殷切期望。仪式是必需的。</p><p>念此，我便心怀期望，假弱冠之名，胡言乱语一番，制造一点点告别2020的仪式感吧。</p><h2 id="入冬"><a href="#入冬" class="headerlink" title="入冬"></a>入冬</h2><p>今年的冬天来得迅疾，秋日短促得令人惆怅。不及伤秋秋已逝，难免心生遗憾。某夜返回宿舍途中，不由感叹：</p><blockquote><p>深秋秋夜，凉风桂香残，倒像极了桂花冰棒</p></blockquote><p>嗅觉搅动记忆，把夏日冰棒、秋日桂香、冬日凉风揉作一声白驹过隙的喟叹。</p><p>家乡的冬季大概没这么突然吧。阵阵秋雨阵阵寒，淅淅沥沥，秋意就沁入了时节。秋日匆匆或是步履匆匆，想来有这样的感觉已是数年之前，不免怅然。</p><p>前些日子下了冬季的第一次雪。沉沉暮色之下，雪也是沉重的。或许是地气尚暖，落地时已稍稍消融，故而少了轻盈之感。回屋看到社交媒体上对初雪许愿的帖子，不禁哑然：望雪时内心是安宁的吧，干净得没有一丝欲望，想不起来要许愿了。</p><h2 id="蓄发"><a href="#蓄发" class="headerlink" title="蓄发"></a>蓄发</h2><p>高中时便想蓄长发，起因大概是少年的摇滚梦吧。曾携假发一顶，与狐朋狗友轮流穿戴，或英气逼人，或<del>媚态尽显</del>，或<del>憨态可掬</del>，相视无言，唯捧腹大笑。</p><p>然而高中不允许男生留长发。大学总算有可乘之机，于第二年偷偷执行。自备了推子剪子，却往往不知如何下手。没考虑过发型，也没想过留到什么程度，不如放任自流，美其名曰：</p><p><em>让头发自由地生长。</em></p><p>随心所欲究竟太难，实现须发自由聊以自慰耳。</p><h2 id="疫情"><a href="#疫情" class="headerlink" title="疫情"></a>疫情</h2><p>并未身处疫情中心，起初消息亦不通达，临近年关才慢慢警戒，也不再走亲访友。于我来说倒也清静安适，宅家之余外出散步也不至于太闷。</p><p>口罩和消毒用品一时洛阳纸贵(乱用成语)，颇有<a href="https://zh.wikipedia.org/wiki/%E7%9B%B2%E6%90%B6%E9%B9%BD%E4%BA%8B%E4%BB%B6">抢盐</a>之姿。不过也不至于慌乱，物资供给充足，不似<a href="https://zh.wikipedia.org/wiki/2013%E5%B9%B4%E5%AE%81%E6%B3%A2%E6%B0%B4%E7%81%BE">13年水患</a>时的断水断电，高楼成孤岛。</p><p>此次疫情的影响，或许若干年后才能完全显现。我敬重财新社的<a href="https://coldercoder.github.io/Life/wuhan-caixin/">报道</a>，更希望有像非典时<a href="https://www.cctv.com/lm/140/73/84860.html">柴静</a>那样直击人心的文字。</p><p>我不认为讲几句全球经济影响，弘扬几下正能量就能将这次事件带过去。这次事件给社会和人类带来什么，更值得思考。</p><p>有<a href="https://zh.wikipedia.org/wiki/%E5%9A%B4%E9%87%8D%E6%80%A5%E6%80%A7%E5%91%BC%E5%90%B8%E7%B3%BB%E7%B5%B1%E7%B6%9C%E5%90%88%E7%97%87%E7%96%AB%E6%83%85">SARS疫情</a>的前车之鉴，此次疫情初期仍旧奉行鸵鸟政策，这是否反映出了制度的弊病？这是否更是一种思维模式的扭曲？</p><p><a href="https://zh.wikipedia.org/wiki/%E6%96%B9%E6%96%B9%E6%97%A5%E8%A8%98">方方日记事件</a>引发的争议与批评，令我感到悲哀。观其文字及行事，格局甚小，完全不配得到如此多的关注。围绕日记引发的政治热潮与舆论风波令人作呕，各方势力可以不顾事物本身的性质与价值，为了自身的立场加以利用，输出观点。而群众可以被轻易煽动，言语倾轧。我只看到了一个民族的自卑，如若不然，各种纷争，一笑而过，何必作小丑状。<code>2020/12/28 Edit</code>: 最近看到一篇<a href="http://www.ideobook.com/2931/fang-fang-diary/">相关文章</a>，mark一下。</p><p>抗疫与公权力膨胀、健康码与隐私等等问题还没想明白，想好了再写。</p><p>有时候感觉挺荒谬的，用一个8月写的段子结尾：</p><blockquote><p>保安：健康码 健康码<br>耳朵：健康吗 健康吗<br>脑子：??? 健…康…？<br>嘴：（迟疑）……<br>眼：看见远处的二维码</p></blockquote><h2 id="回忆"><a href="#回忆" class="headerlink" title="回忆"></a>回忆</h2><p>不知为何，突然有了<a href="https://coldercoder.github.io/uncategorized/hello-world/">重新料理博客</a>的想法。我是个习惯沉默的人，倒不如说是讷言。思绪烂在肚子里，随时间一点点模糊混杂，怪可惜的。写下来好歹自娱自乐罢。</p><p>不玩微博，不用微信，平时也就发一些QQ空间。大多数是发了又删，标准是这样的：一年后再看，如果会感觉无聊，便不值得保留下来。</p><p>近年来我更深刻地意识到，碎片化的表达不利于思考。我需要多加静思，而非贪图三言两语的便捷。不受限地思考，自由地表达，是我写博客的初衷。</p><p>日后得闲时，整理一下几年前写的小玩意儿，现在回顾想必是另一种心境，会很有趣吧。</p><h2 id="老树"><a href="#老树" class="headerlink" title="老树"></a>老树</h2><p>某日偶然看到了一则崔健的<a href="https://coldercoder.github.io/Music/cuijian-interview/">采访</a>，顺藤摸瓜找了找源地址，瞎摸一番竟还摸到个好东西。</p><p>是老树讲的，题目叫做<a href="https://www.yixi.tv/h5/speech/227/">《做一个梦》</a>。</p><blockquote><p>那么多的思想在作用我们，我们就在考虑我们到底是谁，我从哪里来，到哪里去？</p></blockquote><p>老先生是个通透的人，讲话流露着真性情。他讲一个人如何明白地活着。我很欣赏这段话：</p><blockquote><p>这个时候做的一切事情是什么？你是谁，你是谁就是证实的方法，通过我做的事情被他人认可，我才相信，哦，我还行。你就发现你是个依赖性的，你依赖别人的认可来确认我是存在的，我的存在感来自于别人的承认。而人在年轻的时候都处在这么一个时段。我要做很多事情，不管挣钱也好，或者是出名也好。<br>问题你活着，你作为一个独立的生命，这是独一无二的，凭什么要通过别人的承认，你才证明你确实活着？</p></blockquote><p>他讲：<strong>落到虚处，就是回到自己的内心。</strong></p><blockquote><p>我们过去那么多主义、那么多东西把我们塑造成一种共同的集体人格。我们的所有的判断都是由别人赋予的，我们自己没有标准，我们自己没有对自己的自觉，这个特别要命。</p></blockquote><p>看清楚了，有自觉了，大概就活明白了。</p><p>听了之后很受感动，有一种心声被讲出来的感觉。</p><hr><p>2021，活得更明白一点。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Life </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 2020 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>醉态观（离题的）</title>
+      <link href="Life/not-drunk/"/>
+      <url>Life/not-drunk/</url>
+      
+        <content type="html"><![CDATA[<p>上周末随社团外出聚餐，是夜多人酩酊大醉，不省人事，观其醉态，甚惑。我未尝喝醉过，不是说我酒量好，只是喝得少。饮酒一多，便感到肚子空空不想再喝，腹中空虚总让人无端感到委屈，也难怪藉酒浇愁愁更愁……（歪理）</p><p><strong>没有什么是只能通过醉酒达到的</strong>。醉是一种意，让理智下降一点，情绪就放浪一些。微醺即可，过度借助外力来达到某种精神状态可谓不智，一旦过度，乃至对身体失去控制，则尤为麻烦（辗转腾挪安置醉汉使我手腕酸痛了一天，太重了），亦不雅观（大家都懂）。</p><hr><p><a href="https://silicom.gitee.io/">社团</a>是在我这一届正式成立的，其间几经风波，如今已然过去二载时光，一切步入正轨，心中颇为欣慰。</p><p>恰时有一点点傲气，有一点点锐气，有一点点理想，便决心做了，也多亏同侪齐心协力，共同促成了这件事，很感谢我的同伴们。</p><p>社团前身是一个商人领导下的卖电脑组织，兼修电脑，有几年历史。刚步入大学便得知有这个团体，以为是个电脑社团，很是兴奋。平时常在QQ群组帮忙排查电脑问题，周末也有现场义修活动，在探索实践中学了很多。第一次拆机，第一次换笔记本屏幕，第一次拯救进水的笔记本……兴趣使然，乐在其中。</p><p>后来得知团体还有卖电脑的业务，也应承下来做了。算是练习与人沟通，顺便帮助小白挑选合适的机器。生性不会甜言蜜语，啊哈，感觉有些迟钝，有点傻气。交谈了许多，感觉fact倒不是那么重要，有些时候feeling更能让人埋单，挺滑稽的。</p><p>不久就接任做了团队的负责人，周常的义修活动的担子也渐渐交给了我。当时热情正盛，每次义修必参加，也在努力促成一届成员的进步。一些朋友稍加引领，便成长得很快，不出一二月便能担当相当一部分的工作了，挺为他们感到高兴的。</p><p>后来销售的任务加重了，各种商业指标的要求也渐渐变得繁杂，进而要求写宣传文案，各种报告。身为负责人，还被要求上报加了多少好友，群组拉了多少人，推销了多少人，售出了多少……各种琐事愈加过分，算是原形毕露了吧。这其中大多数过分的要求我一个人挡下来了，没有影响到团队成员。我不想再提其他破事，只有一件事感觉挺愧疚的：当时商人要求召集团队成员培训，说是讲维修知识与销售要点，但我带着团队成员从地铁三号线的一端坐到另一端，又换乘公交车继而步行到达现场后，却被灌了一下午的销售迷汤，简而言之就是洗脑。虽然此事是商人单方面欺诈，但还是很对不起当时回来后大感失望与气愤的同学。</p><p>商人最后不要脸了，干脆直说义修就是为卖电脑服务的，一切以销量为目标。这可以说是与我的初衷背道而驰了：我加入这个是为了参与到一个友好互助的社区之中，而不是将满腔热情当作商业活动的卖点作贱掉。</p><p>不得不承认商人精于笼络人心，卖惨、标榜、批评、激励、予小利……且有一套话术，将人绕进他的窠臼之中，一时无法辩驳。我的建议是：<strong>永远不要信任一个商人，因为你不知道他究竟会拿什么东西置换利益</strong>。</p><p>好在我情感迟钝，不会轻易感动；好在我讲求逻辑，不会盲目听信。<strong>自由的思想比任何利益要重要</strong>。我想起了一句广告词，是来自著名游戏厂商、Steam游戏平台运营者Valve。小时候玩CS1.5总被那个左眼嵌了自来水阀门的<a href="https://half-life.fandom.com/wiki/Mr._Valve">大叔</a>吓到，后来才知道将左眼替换成阀门(Valve)是为了表达“Open your mind. Open your eyes.”这一理念。你须张开眼，看看这世界，而非将思想闭塞，偏安于一隅。</p><p><img src="https://cdn.jsdelivr.net/gh/coldercoder/coldercoder.github.io/images/not-drunk-1.jpg" alt="Mr. Valve"></p><p>我有一个信念，团队是属于每个团队成员的，是共同意志的凝结，并不是一个商人有资格完全左右的。每个人应该是自由的，任何不怀好意的束缚都是暴行。商人的任何屁话与胡搅蛮缠都是bullshit.</p><p>当时的境遇当然不是如今回忆的语气那般轻松了。核心问题是团队的存续。离开了销售，失去了利益驱使，团队是否还有足够动力进行宣传，还是否有动力来维持团队的活动？另一方面，考虑到学校对社团逐渐紧缩的政策，我们对社团能否成功成立也十分迷茫。</p><p>不管是否有人从中挑拨，当时事实上分为了两派，一派主张成立社团，脱离商人的剥削与洗脑，另一派坚持要维持现状，甚至有分裂之意。不管是否被刻意引导，事实上主张维持现状方几乎不了解现状是什么，亦不了解成立社团派的目标是什么，甚至有自我高潮的倾向。</p><p>当时与商人决裂后与另一校区的负责人几乎聊了一星期，每天晚上都费尽心力沟通。我们关系挺不错，他有销售意愿，是倾向于维持现状的。交谈后发现他对很多事实的认知都是被歪曲的，我一点点解释，一点点沟通，最后他也理解了我们。他算是与商人聊了许多，当时也为商人讲了好话，于是在主张成立社团的人之间声名狼藉。我不知如何评价这件事，只能说，深陷人情往来之中，总是有些许无奈吧。</p><p>在19岁经历了两派对立，钩心斗角，也算涨见识。无视事实，立场先行；不讲逻辑，一锅乱炖。能避开这两条，可以说是一个较为理智的人了。我极度厌恶胡搅蛮缠的人，虽然有些人只是不懂如何冷静地逐步分析各个要素，他们的逻辑就是混沌与糊涂。</p><p>一天夜里，几位主张成立社团的人聚在一起，谈论团体的出路问题。当时看来的确前途未卜，挺害怕倾注了心血的团体顷刻散做云烟，那该有多遗憾呵。月凉如水，正如我们几个的心境。当时甚至做好了消亡的心理准备，因为我们无法认可用受制于人不得自由换来团体的存续。</p><p>少年心气，当时几个人建了个群，群名叫：<em>这逼学校没个电脑社团是件很他妈奇怪的事</em>。</p><p>我们至少怀揣着一丝理想。</p><hr><p>说到电脑社团，其实有一个计算机学院院级的社团叫着Computer Rescue (CR), 我来到这学校时它已日暮西山，我加入的那年事实上是它最后一年，前半年还有值班修电脑的日常，后半年干脆没有了，继而临时找了个学弟接任(主要是我不愿意背锅，因为已经预感到扶不起来了)。CR有自己的问题：招新受制于院，而计院本身活力不足，对没有利益的志愿活动相对来讲不感冒（因为比较忙），院系对社团也几乎没有投入任何资源。期间还发生了一件令人心寒的事情：我同学修一台电脑操作过程有些小失误，但最后机主离开时电脑已被修复，是正常工作的。之后机主来闹事，院团委老师竟不顾事实，让那位同学写了三千字检讨。这件事令人无话可说。</p><p>最近又发生了相似的闹剧，我出离愤怒了，也很痛心，当时写了这段文字：</p><blockquote><p>想了想，还是有话要说出口：<br>说到底还是旧思想残余，法治观念淡薄。<br>很多时候，人治胜于法治，人情甚于规矩。<br>声高者有理，守规矩吃亏。你可悲地发现市侩哲学往往让小人占尽便宜。<br>这真的正确吗？路人倒地无人扶，路见不平先思量，能全怪冷眼旁观者吗？<br>从人的浆糊中挣脱开来，人间有温情而非私情，心中有法度，言有中 行有称。<br>莫待古道热肠心已寒。</p></blockquote><p>愿热心不寒。</p><hr><p>社团的成立，衷心感谢阿香同学，真的很给力，功不可没。</p><p>成立社团，出于责任感我们需要解决遗留问题，但与过去划清界线是必要(实际考虑与学校规定)的，几个直男围坐一桌，想不出什么名字，我随口一提，就叫作SiliCOM吧，silicon为硅，改末字为m，com是最常见的<a href="https://zh.wikipedia.org/wiki/%E9%A0%82%E7%B4%9A%E5%9F%9F">TLD</a>。其实没什么特殊含义，只是这个变形比较好玩罢了。实在要讲意义，那就是希望社团发展成软硬件兼顾的开放互助社区。当初怀揣的理想除了汇聚志趣相同的朋友外，最重要的是传递热心，让人间多一点温情吧。</p><p>如今社团步入正轨，挺高兴的，这是一种幸运。</p><hr><p>写了这些文字，叙事尽量保持了克制，其实心中五味杂陈。时间过去许久，但一些事情还是没想明白：<strong>商人不一定要是商人</strong>，我要如何看待人情世故？</p><p>慢慢体悟吧。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Life </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>音乐和我（四）</title>
+      <link href="Life/music-n-me-4/"/>
+      <url>Life/music-n-me-4/</url>
+      
+        <content type="html"><![CDATA[<p>对华语流行的失望是一回事，对母语的依恋是另一回事。</p><p>在我刚开始听歌的一余载，我碰到东亚当代歌星相关的内容，一律退避三舍。但其间我也有幸遇到了许多令我感触良深的歌曲，我往往不比它们年长多少，还有许多歌曲来自千禧之前。</p><p>听华语歌，有别样的安心感，就像是找到了家，找到了文化的根。</p><p>选一些聊一聊吧。</p><h2 id="家国"><a href="#家国" class="headerlink" title="家国"></a>家国</h2><p>什么是爱国歌曲？是主旋律歌曲吗？我想，空洞的歌颂之中是没有爱的，正如阿谀奉承之徒心中没有忠诚。</p><p>记得当时听到<a href="https://www.youtube.com/watch?v=l8UPST1ZKSw">《一块红布》</a>的时候，呆呆地蜷坐在椅子上，循环着听了四十多遍直至夕照刺入窗棂。</p><blockquote><p>我不能走我也不能哭<br>因为我的身体现在已经干枯<br>我要永远这样陪伴着你<br>因为我最知道你的痛苦</p></blockquote><p>这是一种什么样的爱啊……</p><p><strong>爱不是被一块红布蒙住双眼，爱是撕开红布后的不离不弃。</strong></p><p>1990年，滚石唱片的张培仁第二次来到北京，看到崔健蒙着双眼，吹着小号，唱起《一块红布》的时候，这个1.95米的汉子抱着柱子痛哭流涕：“当看到老崔蒙着眼唱《一块红布》的时候，我抱着柱子痛苦，你原本以为这个民族会在软绵绵的、年轻人没有自主性的氛围里堕落下去，但是这帮人在北京一无所有的环境里创造了中国摇滚。”</p><p>这是赤子的情歌。</p><p><a href="https://www.youtube.com/watch?v=4zBon_tBuOg">《乡愁四韵》</a>由余光中作词，罗大佑作曲。曲中是烧痛的乡愁，对故土对故人的眷恋。</p><blockquote><p>给我一瓢长江水啊长江水<br>那酒一样的长江水<br>那醉酒的滋味是乡愁的滋味<br>给我一瓢长江水啊长江水</p><p>给我一掌海棠红啊海棠红<br>那血一样的海棠红<br>那沸血的烧痛是乡愁的烧痛<br>给我一掌海棠红啊海棠红</p><p>给我一片雪花白啊雪花白<br>那信一样的雪花白<br>那家信的等待是乡愁的等待<br>给我一片雪花白啊雪花白</p><p>给我一朵腊梅香啊腊梅香<br>那母亲一样的腊梅香<br>那母亲的芬芳是乡土的芬芳<br>给我一朵腊梅香啊腊梅香</p></blockquote><h2 id="时代与自己"><a href="#时代与自己" class="headerlink" title="时代与自己"></a>时代与自己</h2><p><a href="https://www.youtube.com/watch?v=lUYUWf1a5tQ">《孤独的人是可耻的》</a>表达了<a href="https://zh.wikipedia.org/wiki/%E6%94%B9%E9%9D%A9%E5%BC%80%E6%94%BE">时代</a>的迷惘：是否应该保持孤独？什么才是可耻的？这些问题可以从当时，一直问到现在：在随波逐流或坚守本心之间做出选择，你将获得什么，你又将付出什么代价？</p><p>人们对这首歌的评价似乎充满了争议，我只是想说，硬扒字面意义的人，只适合听口水歌。歌曲更多地是提供了一种气氛，让听众在迷惘中思考，选择与选择的代价。</p><p>何勇的<a href="https://www.youtube.com/watch?v=zRFY0WGtCk4">《钟鼓楼》</a>以简单平实的文字，就描绘出了一幅老北京的市井生活图景。但后半段，他话锋一转，不无尖锐地问：“是誰出的題這麼的難 到處全都是正確答案”。</p><p>你已经看着这么长的时间，你怎么还不发言？看似到处是正确的选择，但无论如何选择，至少歌曲前半段的平静生活或多或少将不复存在了。旧的庭院被推倒，旧的生活方式被取代，人们拥抱新鲜事物，适应新的生活轨迹。人们会忘记什么，会抛弃什么，会失去什么？</p><p>罗大佑先生的<a href="http://www.ifp.illinois.edu/~schu/Dayou/lugang.html">《鹿港小镇》</a>同样振聋发聩：“台北不是我的家  我的家乡没有霓虹灯”。徘徊在文明里的人们得到他们想要的却又失去他们拥有的……</p><p>不知哪里听到过这样的话：诗人是社会敏感的良心。那么这样的歌便是时代的良心，中华文化的良心。</p><h2 id="自己与他人"><a href="#自己与他人" class="headerlink" title="自己与他人"></a>自己与他人</h2><p>命里有时终须有 命里无时莫强求 —— 许冠杰《浪子心声》</p><p>一朝悲歌成金曲 愁容骑士更多余 —— 万能青年旅店《乌云典当记》</p><p>你说这城市很脏 我觉得你挺有思想 —— 张楚《爱情》</p><p>……</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Life </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> music </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>音乐和我（三）</title>
+      <link href="Life/music-n-me-3/"/>
+      <url>Life/music-n-me-3/</url>
+      
+        <content type="html"><![CDATA[<h2 id="开耳"><a href="#开耳" class="headerlink" title="开耳"></a>开耳</h2><p>刚听歌，其实听的很多偏流行的音乐，像Mikky Ekko的<a href="https://music.apple.com/cn/album/time/936955050?i=936955055">Time</a>、Ben Howard的<a href="https://music.apple.com/cn/album/promise/1446739756?i=1446740057">Promise</a>就颇有意境美。后来相继认识了<a href="https://zh.wikipedia.org/wiki/%E8%BF%88%E5%85%8B%E5%AD%A6%E6%91%87%E6%BB%9A">Michael Learns to Rock</a>、<a href="https://www.coldplay.com/">Coldplay</a>、<a href="https://www.westlife.com/">Westlife</a>等乐队，一度挺喜欢他们的，一张张专辑一首首歌都听下来。当时的感觉就像久旱逢甘霖，听到好听的，难免痴迷其中：情感原来可以这么表达，以这样一种优美的方式。</p><p>要问我现在还是否喜欢着这些乐队，是也不是。一个个人承载的重量是有限的，你必须做出选择。作出选择，意味着舍弃，但所谓舍得，舍得一身轻松，才有前行的步履轻盈。我从来不是属于一个乐队的粉丝，我听的多数乐队或歌手，能有一二首我喜欢甚至深得我心的歌，足够了。胡吃海喝一知半解，不如取一瓢饮，知个中滋味。</p><p>现在回去听，过程像是温润地回忆。那些是我最初的脚印，每个脚印都是一寸光阴，将我带回彼时光景。</p><p>我对文字的记忆很钝，小时候背古诗给下句总对不上前一句，是谁写的也常常忘掉。想来自己挺迟钝的，若有一面之缘，我拾有拾壹对不上其人脸与姓名，倒是若其嗓音引我注意，我能很快记住他。哈哈，挺怪的吧。</p><h2 id="发聩"><a href="#发聩" class="headerlink" title="发聩"></a>发聩</h2><p>大量探索的时候，也听到过一些摇滚/金属/朋克乐队，比如<a href="https://www.pinkfloyd.com/">Pink Floyd</a>、<a href="https://eagles.com/">Eagles</a>、<a href="https://rollingstones.com/">Stones</a>、<a href="https://greenday.com/">GreenDay</a>、<a href="https://www.the-scorpions.com/">Scorpions</a>等等，这些乐队后来都对我有比较大的影响。Pink Floyd使我思考，Eagles给我鼓励，Stones教我放达，GreenDay让我振奋，Scorpions宣扬自由与爱……</p><p>像发掘宝藏，新的发现，新的认识，新的感悟。当时的我将抒情的慢歌抛之脑后了，偏爱重的、有力量的东西，<a href="https://www.ledzeppelin.com/">Led Zeppelin</a>、<a href="https://www.gunsnroses.com/">Guns N’ Roses</a>、<a href="https://www.ozzy.com/">Ozzy Osbourne</a>、<a href="https://www.aerosmith.com/">Aerosmith</a>等等，都爱听。他们为了自己的信条声嘶力竭，这种令人眩目的释放对我来说是一种冲击。我能感受到他的力量，植根于肉体与灵魂中的力量，这些力量尽其所能将自己表达出来，这无疑令人感动，甚至狂热。</p><p>摇滚不是讲虚的，摇滚必须直面真实，甚至将真相剖开了鲜血淋漓地拿给你看。面对真实你无法置身事外，因为人无法逃脱命运的连结。记得一堂小学音乐课，老师放<a href="https://www.youtube.com/watch?v=9AjkUyX0rVw">We Are The World</a>的MV，看到听到好多人唱，你一句我一句的镜头切换。少不更事，班上好多人看了那些表情都笑，因为根本没见过嘛，那样投入的情感表达。我默默听着，我感受到了一位位歌手他们的真诚，心中唯有肃然起敬。多年后才知道，那是美国援非的歌曲，在那个背景下，更有<a href="https://en.wikipedia.org/wiki/Live_Aid">Live Aid</a>此等盛事，令人感动流泪。摇滚乐是全人类的。</p><p><img src="https://cdn.jsdelivr.net/gh/coldercoder/coldercoder.github.io/images/music-n-me-3.jpg" alt="We Are The World"></p><p>振聋发聩，没有别的话来描述，就是振聋发聩。</p><p>我朦胧而初级地感受到了“力量”为何物。歌曲不应该是软绵绵的，它一定要有些什么东西在里边，这些东西让你感同身受。</p><p>记忆是很怪的，一些话一些歌，当时听了没甚么感觉，后来经历了一些事，便莫名想起，继而思考感悟。我是想说，很多东西在体内，可能自己根本不会察觉，直到一天它破土而出……体察这个过程，承认自己与自己体内的特质，认识自己。所谓<a href="https://ctext.org/dao-de-jing/zh#n11624">自知者明</a>，自知之明就是这样锻炼出来的吧。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Life </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> music </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>音乐和我（二）</title>
+      <link href="Life/music-n-me-2/"/>
+      <url>Life/music-n-me-2/</url>
+      
+        <content type="html"><![CDATA[<p>摇滚乐对于一个正值青春期的懵懂少年来说无疑是震撼的。那是一种冲击，令人眩晕的冲击，像陨石坠落。这些音乐与我的世界几乎毫无关联，但偏偏与我生活无关的音符，指引我张开眼，看到更多。</p><p>我要撕裂我自己，生活不仅是教科书与本能。我要认识我的存在，我要认识这个世界。我要睁开眼，我要寻找因，而非迷失于果。不先认识自己，一切皆为虚妄。</p><p>我正痛苦，我正醒来。音乐恰好点燃了自我意识的野蛮生长的引线。音符的洪流，冲击着我这根淤塞了十余年的导管。除了对与错，除了好与坏，除了黑与白，除了快乐与悲伤，还有太多选项，世界是多元的。当时我想到的能做的第一件事是：凡事尽量自己作判断，而非直接接受外界的观点。</p><p>我更习惯先怀疑，而非接受，若非使我信服，则先搁置。我更习惯于保留意见，如果我并不确信自己的观点有价值。当时我问自己最多的问题是：为什么如此？</p><p>我要从黑白之间找到更多的颜色，我对这个世界要有自己判断。每次质疑，每次思考，其实都是某种意义上的价值判断。如此积少成多，这便是价值观的养成。</p><blockquote><p>宇宙观决定世界观，世界观决定人生观，人生观决定艺术观、政治观、爱情观……但是中国的政客是从政治观出发，决定人生、世界、宇宙观，然后拿来为他们的政治服务。<br>—— 木心 《文学回忆录》</p></blockquote><p>木心反复提的宇宙观&gt;世界观&gt;人生观的关系，如此见解，自然是令人拍手称快的。但当时的我什么都没有，积累形成自己的价值观，便已是一步步的自我救赎了。哪有一上来说我有了宇宙观的，不是这样的。<a href="https://ctext.org/dao-de-jing/zh#n11655">九层之台，起于垒土</a>，没有基础的认知，难以形成坚实的世界观乃至宇宙观。同样地，没有坚实的宇宙观世界观，人生观不过是无根之萍，终有崩溃的一刻。宇宙观到世界观到人生观乃至下游的种种，这个关系链条不是单向的，而是双向反馈的体系。</p><p>宇宙观，我想是对宇宙运行形态的认知，是一种规则，是道家的“道”。世界乃“道”的体现，是宇宙规则运行的实例，所以宇宙观决定世界观。</p><p>老子开篇就讲“無名天地之始；有名萬物之母”，愚以为无名与有名的关系，可以比作宇宙与世界的关系。“故常無欲，以觀其妙”，观宇宙，是无欲的、“以万物为刍狗”的宇宙；“常有欲，以觀其徼”，观人世，用欲求的目光，遍历其沉浮。<a href="https://ctext.org/dao-de-jing/zh#n11602">道德经十一章</a>也有一精妙的阐述，讲的是“有之以為利，無之以為用”，其中“無”与“有”的关系正是宇宙观与世界观的关系。</p><p>人生于天地之间，是这个世界上的存在。从世界观到人生观，落实到个人身上，便是如何安身立命的课题。人一旦思考自己的存在，其实能从人生观到世界观再到宇宙观，触动整根链条。</p><p><strong>宇宙观&gt;世界观&gt;人生观，这个关系链条的稳固性，决定了内心的健壮度。</strong></p><p><strong>宇宙观&gt;世界观&gt;人生观，由大入微，见微知著，人是渺小的，人是辽阔的。</strong></p><p>“但是中国的政客是从政治观出发，决定人生、世界、宇宙观，然后拿来为他们的政治服务。” 这太糟了，人生是途径，不是目的。你纵然可以带着目的活着，但<a href="https://www.mulanci.org/lyric/sl151811/">戴着面具如何面对自己</a>？</p><p>我要做<a href="https://zh.wikipedia.org/wiki/%E9%B2%81%E6%A3%92%E6%80%A7">“鲁棒性”</a>强的人。我要做一个能坦然面对”夜深人静时”的人。</p><p>我要成为我自己。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Life </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> music </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>安装V2Ray服务端 VLESS+回落</title>
+      <link href="Tech/ray/"/>
+      <url>Tech/ray/</url>
+      
+        <content type="html"><![CDATA[<p>2020-11-21更新：由于<a href="https://github.com/XTLS/Go/issues/9#issuecomment-731588021">许可证问题</a>，XTLS已从v2ray-core中移除，本教程换用TLS.</p><p>2021更新：建议使用<a href="https://github.com/XTLS">XRay</a>. 本文不再更新。推荐阅读：<a href="https://xtls.github.io/documents/level-0/">小小白白话文</a></p><h2 id="安装之前"><a href="#安装之前" class="headerlink" title="安装之前"></a>安装之前</h2><ol><li>确保系统时间正确(对于VLESS来说非必需)</li><li>更新内核并开启BBR(强烈建议)</li><li>确保至少443端口是开放的(建议也将80开放)</li></ol><h2 id="安装V2Ray"><a href="#安装V2Ray" class="headerlink" title="安装V2Ray"></a>安装V2Ray</h2><p><a href="https://github.com/v2fly/fhs-install-v2ray">fhs-install-v2ray</a> 脚本安装  </p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#安装和更新V2Ray</span></span><br><span class="line">bash &lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh)</span><br></pre></td></tr></table></figure><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#每周一凌晨三点更新v2ray</span></span><br><span class="line">crontab -e</span><br><span class="line">0 0 3 * * MON <span class="string">&quot;bash &lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh)&quot;</span> &gt; /dev/null</span><br></pre></td></tr></table></figure><p>安装后的配置文件路径为：<code>/usr/local/etc/v2ray/config.json</code></p><h2 id="选定协议并编写config"><a href="#选定协议并编写config" class="headerlink" title="选定协议并编写config"></a>选定协议并编写config</h2><p>可以参考v2fly的<a href="https://github.com/v2fly/v2ray-examples">v2ray-examples</a>仓库。</p><p>我们可以借助前置VLESS方便地配置回落。（V2Ray的Trojan有完整的VLESS-fallbacks支持，配置方式完全一致，后续VLESS-fallbacks升级时会同步跟进）<br>其他分流方式有：前置Caddy, nginx等反代或者使用<a href="https://github.com/liberal-boy/tls-shunt-proxy">TLS分流器</a>。<br>VLESS暂不支持根据SNI分流</p><p>所有这些回落/分流都是为了达到443端口复用的目的，使你各种服务的流量都经SSL加密，像是在正常访问一个网站一样。</p><p>这里选用前置 VLESS-TCP-TLS + 回落到 VMESS-WS-TLS.<br><del>其中<a href="https://www.v2fly.org/config/protocols/vless.html#xtls-%E9%BB%91%E7%A7%91%E6%8A%80">XTLS</a>特性需要服务端与客户端的Core版本高于v4.31，</del>回落到VMESS-WS-TLS考虑到兼容性与使用CDN的可能性。实现正常通过域名访问网站，443端口同时适用于VLESS-TCP-TLS与VMESS-WS-TLS.</p><p>下面附上我的配置：</p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;inbounds&quot;</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">&quot;port&quot;</span>: <span class="number">443</span>,</span><br><span class="line">            <span class="attr">&quot;protocol&quot;</span>: <span class="string">&quot;vless&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;settings&quot;</span>: &#123;</span><br><span class="line">                <span class="attr">&quot;clients&quot;</span>: [</span><br><span class="line">                    &#123;</span><br><span class="line">                        <span class="attr">&quot;email&quot;</span>: <span class="string">&quot;love@v2fly.org&quot;</span>,</span><br><span class="line">                        <span class="attr">&quot;id&quot;</span>: <span class="string">&quot;&quot;</span>, <span class="comment">//替换成你的ID，可用工具生成</span></span><br><span class="line">                        <span class="attr">&quot;level&quot;</span>: <span class="number">0</span></span><br><span class="line">                    &#125;</span><br><span class="line">                ],</span><br><span class="line">                <span class="attr">&quot;decryption&quot;</span>: <span class="string">&quot;none&quot;</span>,</span><br><span class="line">                <span class="attr">&quot;fallbacks&quot;</span>: [</span><br><span class="line">                    &#123;</span><br><span class="line">                        <span class="attr">&quot;dest&quot;</span>: <span class="number">8080</span> <span class="comment">//回落到反代(稍后会提及)</span></span><br><span class="line">                    &#125;,</span><br><span class="line">                    &#123;</span><br><span class="line">                        <span class="attr">&quot;dest&quot;</span>: <span class="number">1234</span>,</span><br><span class="line">                        <span class="attr">&quot;path&quot;</span>: <span class="string">&quot;/yourPATH&quot;</span>, <span class="comment">//替换成你的PATH，建议复杂一点</span></span><br><span class="line">                        <span class="attr">&quot;xver&quot;</span>: <span class="number">1</span></span><br><span class="line">                    &#125;</span><br><span class="line">                ]</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">&quot;streamSettings&quot;</span>: &#123;</span><br><span class="line">                <span class="attr">&quot;network&quot;</span>: <span class="string">&quot;tcp&quot;</span>,</span><br><span class="line">                <span class="attr">&quot;security&quot;</span>: <span class="string">&quot;tls&quot;</span>,</span><br><span class="line">                <span class="attr">&quot;tlsSettings&quot;</span>: &#123;</span><br><span class="line">                    <span class="attr">&quot;alpn&quot;</span>: [</span><br><span class="line">                        <span class="string">&quot;http/1.1&quot;</span></span><br><span class="line">                    ],</span><br><span class="line">                    <span class="attr">&quot;certificates&quot;</span>: [ <span class="comment">//证书申请过程会在后文说明</span></span><br><span class="line">                        &#123;</span><br><span class="line">                            <span class="attr">&quot;certificateFile&quot;</span>: <span class="string">&quot;/var/www/ssl/cert.pem&quot;</span>, <span class="comment">//替换成你fullchain file的绝对路径</span></span><br><span class="line">                            <span class="attr">&quot;keyFile&quot;</span>: <span class="string">&quot;/var/www/ssl/cert.key&quot;</span> <span class="comment">//替换成你的SSL key文件的绝对路径</span></span><br><span class="line">                        &#125;</span><br><span class="line">                    ]</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">&quot;port&quot;</span>: <span class="number">1234</span>, <span class="comment">//与上面回落端口保持一致</span></span><br><span class="line">            <span class="attr">&quot;listen&quot;</span>: <span class="string">&quot;127.0.0.1&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;protocol&quot;</span>: <span class="string">&quot;vmess&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;settings&quot;</span>: &#123;</span><br><span class="line">                <span class="attr">&quot;clients&quot;</span>: [</span><br><span class="line">                    &#123;</span><br><span class="line">                        <span class="attr">&quot;id&quot;</span>: <span class="string">&quot;&quot;</span>, <span class="comment">//替换成你的ID，不建议与上面的相同</span></span><br><span class="line">                        <span class="attr">&quot;level&quot;</span>: <span class="number">0</span>,</span><br><span class="line">                        <span class="attr">&quot;email&quot;</span>: <span class="string">&quot;love@v2fly.org&quot;</span></span><br><span class="line">                    &#125;</span><br><span class="line">                ]</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">&quot;streamSettings&quot;</span>: &#123;</span><br><span class="line">                <span class="attr">&quot;network&quot;</span>: <span class="string">&quot;ws&quot;</span>,</span><br><span class="line">                <span class="attr">&quot;security&quot;</span>: <span class="string">&quot;none&quot;</span>,</span><br><span class="line">                <span class="attr">&quot;wsSettings&quot;</span>: &#123;</span><br><span class="line">                    <span class="attr">&quot;acceptProxyProtocol&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">                    <span class="attr">&quot;path&quot;</span>: <span class="string">&quot;/yourPATH&quot;</span> <span class="comment">//与上文回落配置中的path一致</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    <span class="attr">&quot;log&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;loglevel&quot;</span>: <span class="string">&quot;warning&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">&quot;outbounds&quot;</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">&quot;protocol&quot;</span>: <span class="string">&quot;freedom&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>PS：复制config内容的时候可能导致格式混乱，vim中执行<code>:%!python -m json.tool</code>来格式化</p><h2 id="配置反代"><a href="#配置反代" class="headerlink" title="配置反代"></a>配置反代</h2><p>这里使用的是nginx，其他(如:Caddy2)同理</p><p>安装nginx</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install nginx</span><br></pre></td></tr></table></figure><p>修改nginx配置文件</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/nginx/sites-available/default</span><br></pre></td></tr></table></figure><p>附上我的配置文件：</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">server &#123; <span class="comment">#80跳转443</span></span><br><span class="line">    listen 80;</span><br><span class="line">    listen [::]:80;</span><br><span class="line">    server_name your.domain; <span class="comment">#替换成你的域名</span></span><br><span class="line">    rewrite ^(.*)$ https://<span class="variable">$&#123;server_name&#125;</span><span class="variable">$1</span> permanent;</span><br><span class="line">&#125;</span><br><span class="line">server &#123; <span class="comment">#这里简单地列出文件，也可以放个人博客等</span></span><br><span class="line">    listen localhost:8080; <span class="comment">#只监听localhost</span></span><br><span class="line">    charset utf-8; <span class="comment">#防止中文乱码</span></span><br><span class="line">    location / &#123;</span><br><span class="line">        root /var/www/file;</span><br><span class="line">        autoindex on;</span><br><span class="line">        autoindex_exact_size off;</span><br><span class="line">        autoindex_localtime on;</span><br><span class="line">        try_files <span class="variable">$uri</span> <span class="variable">$uri</span>/ =404;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>修改配置文件后记得<code>systemctl restart nginx</code></p><h2 id="申请SSL证书"><a href="#申请SSL证书" class="headerlink" title="申请SSL证书"></a>申请SSL证书</h2><p>首先你要拥有一个域名并指向你的服务器。可以去<a href="https://www.freenom.com/">Freenom</a>申请一个免费域名。</p><p>借助<a href="https://github.com/acmesh-official/acme.sh">acme.sh脚本</a>自动化申请、续约LE证书<br>流程可以参考其<a href="https://github.com/acmesh-official/acme.sh/wiki/%E8%AF%B4%E6%98%8E">中文Wiki</a></p><p>建议使用http方式生成证书，其中使用standalone模式必须安装socat.</p><p>standalone模式需要用到80端口，我们可以先停止nginx，配置好v2ray后，启动nginx与v2ray，再使用nginx模式强制更新证书。（v2ray需要指定证书才能运行，而nginx又需要v2ray正常回落到8080端口，所以<strong>在本教程的配置下</strong>一开始就使用nginx模式获取证书是不现实的）</p><p>生成证书后我们将证书导出至v2ray配置文件中指定的目录 (自行替换你的域名和路径)</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">acme.sh --install-cert -d your.domain \</span><br><span class="line">--key-file       /var/www/ssl/cert.key  \</span><br><span class="line">--fullchain-file /var/www/ssl/cert.pem</span><br></pre></td></tr></table></figure><p>最后解决一下证书权限问题，参考<a href="https://github.com/v2fly/fhs-install-v2ray/wiki/Insufficient-permissions-when-using-certificates#%E6%96%B9%E6%A1%88%E4%BA%8C">这篇说明的方案二</a></p><p>启动v2ray</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable v2ray</span><br><span class="line">systemctl start v2ray</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Tech </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> GFW </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>音乐和我（一）</title>
+      <link href="Life/music-n-me-1/"/>
+      <url>Life/music-n-me-1/</url>
+      
+        <content type="html"><![CDATA[<p>这该从何说起呢。我正式有意识地听歌很晚了，那是14年的秋季，也就是我上初三的时候。为什么那么晚呢，上小学的时候在车载收音机里听到一些流行歌曲，情情爱爱呀，我母亲就让我父亲立即关掉，我心里默默想，就这样的歌，我还看不上呢。于是觉得华语的流行歌，属实没有意思，造作而空洞。  </p><p>我小时候很怕人唠叨，曾经站着被小学班主任连续训话半小时就会一头栽倒。训话无非旧账新账颠来倒去，几万字不离那两三句，但两三句偏能膨胀成汪洋大海，总令人心中感叹<a href="http://124.205.78.192/bdrw/137-110449.htm">白话文</a>竟能够如此冗杂，能被如此糟蹋…总之很怕重复，让我一动不动站着我必抖腿甩手扭脖子，让我一遍遍做一样功课我必定开小差，小差套小差，思绪一层一层飞离，最终忘记最初的目标。如若听歌总是情情爱爱咿咿呀呀翻来覆去黏成浆糊，我可真受不了，那是慢性自杀。  </p><p>如今我想明白了，那叫<a href="https://coldercoder.github.io/Music/cuijian-interview/#%E8%BF%99%E4%B8%8D%E6%98%AF%E4%B8%80%E4%B8%AA%E9%AB%98%E5%A4%A7%E4%B8%8A%E7%9A%84%E6%A0%87%E5%87%86%EF%BC%8C%E8%BF%99%E6%98%AF%E4%B8%80%E4%B8%AA%E5%BA%95%E7%BA%BF">没有力量</a>。不知道为什么要有力量，是内心没有需求，没有需求，何必唱歌。内心没有力量而唱出来的歌，我何必用心去感受？  </p><p>是的，我把音乐看得很重。我把音乐视作精神的传递媒介。你不仅仅是面对着歌词、节奏与旋律，更重要的是你面对着一个意志，它在倾诉，而如果你愿意敞开心扉，你们甚至能促膝长谈。找到一首能触动你的歌，何尝不是一次幸运的邂逅。一次次微小的幸运就像一点点星火，点燃了人的心魂。没有这一点点的幸福，漫漫长路，心中会是何等苦涩。  </p><p>真的很奇妙。有时候就像是跨越时空的相遇。尽管现实中作者已日暮西山甚至早已不在人世，但在歌中他与你一样风华正茂。他有话要对你说，你愿意听，听了之后你甚至想说更多…不受时空拘束与<a href="https://ctext.org/dao-de-jing/zh#n11614">言语制约</a>的知音，莫过于此。  </p><p>莫过如此，我看艺术作品的目光。对话，交互，沟通，怎么说都好，享受艺术作品是心灵相交、心意互通的过程。它们不是死物，艺术作品是有生命的，正如我们每个人一样。而艺术作品的生命，是可以无限扩展的。正如人类文明的延续，民族精神的传承，文化艺术也是薪火相传的。上面提到过力量，正因为有力量，它才能进入人的内心，才能在人心之间传递，将素昧平生的人们的心连结在一起。最美丽的声音，莫过于人们一起唱一首歌的声音。你知道你从不孤单。  </p><p>找到力量，找到力量…来克服恐惧。恐惧它刻在骨头里，常在阳光下被忘记。承认恐惧，体验恐惧，克服恐惧，在某种意义上。中国的传统观念不愿直面负面的事物，可<a href="https://ctext.org/dao-de-jing/zh#n11593">高下相盈,音声相和</a>，避开负面谈正面无非是怯懦，显得猥琐罢了。  </p><p>我听的第一首歌是Jamie N Commons的<a href="https://music.apple.com/cn/album/wash-me-in-the-water/1444414865?i=1444415103">Wash Me in the Water</a>，很有力量。秋季水枯，外婆家旁的水库水位回落，露出大片土地。沿溪而下，越过树林，踩上松软的沙地，抬头望山际暮光流转，低首水光粼粼，风吹拂，第一次感觉天地之间如此纯净安详。刹那间，我发现了我自己，伫立于天地之间，第一次感受到了自己与土地的连结。我想在水中洗净自己，像这天地般纯净，那该有多好。</p><p>这重击了我，像是启蒙，有了“自我”的概念，世界在我的目光中变得不一样了。我开始听许多歌，看一些小说与诗，思考自我存在的意义。我不再是一个被压抑着只知道学习的初中生了。所以我说音乐塑造了一半的我，好像有那么点道理。</p><p>因为起初华语流行给我的恶劣印象，我一开始几乎不听华语歌。之后碰巧在电视上看了不知第四十几届的格莱美（从那一届之后我觉得都味同嚼蜡），顺带着听了听一些欧美流行与摇滚等。有很多等待我去探索，过程挺令人兴奋的，还抄录歌词学着唱，这是纯粹的快乐。头两年听的歌我还摘编成<a href="https://music.163.com/playlist?id=418646836&userid=85769579">歌单</a>存了下来，多年后回头去听，挺有意思的。</p><p><img src="https://cdn.jsdelivr.net/gh/coldercoder/coldercoder.github.io/images/musicnme-1.jpg"><br><img src="https://cdn.jsdelivr.net/gh/coldercoder/coldercoder.github.io/images/musicnme-2.jpg"><br><img src="https://cdn.jsdelivr.net/gh/coldercoder/coldercoder.github.io/images/musicnme-3.jpg"><br><img src="https://cdn.jsdelivr.net/gh/coldercoder/coldercoder.github.io/images/musicnme-4.jpg"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Life </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> music </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>迁移WSL2</title>
+      <link href="Tech/move-wsl2/"/>
+      <url>Tech/move-wsl2/</url>
+      
+        <content type="html"><![CDATA[<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p><strong>下载并解压 <a href="https://github.com/DDoSolitary/LxRunOffline">LxRunOffline</a></strong>  </p><h3 id="停止wsl"><a href="#停止wsl" class="headerlink" title="停止wsl"></a>停止wsl</h3><figure class="highlight ps"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl -<span class="literal">-shutdown</span></span><br></pre></td></tr></table></figure><h3 id="查看发行版"><a href="#查看发行版" class="headerlink" title="查看发行版"></a>查看发行版</h3><figure class="highlight ps"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.\LxRunOffline.exe list</span><br></pre></td></tr></table></figure><h2 id="本机迁移"><a href="#本机迁移" class="headerlink" title="本机迁移"></a>本机迁移</h2><h3 id="执行迁移"><a href="#执行迁移" class="headerlink" title="执行迁移"></a>执行迁移</h3><figure class="highlight ps"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.\LxRunOffline.exe <span class="built_in">move</span> <span class="literal">-n</span> Ubuntu <span class="literal">-d</span> D:\Ubuntu</span><br></pre></td></tr></table></figure><p>自行替换相关变量</p><h3 id="查看结果"><a href="#查看结果" class="headerlink" title="查看结果"></a>查看结果</h3><figure class="highlight ps"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.\LxRunOffline.exe <span class="built_in">get-dir</span> <span class="literal">-n</span> Ubuntu</span><br></pre></td></tr></table></figure><h2 id="提桶跑路"><a href="#提桶跑路" class="headerlink" title="提桶跑路"></a>提桶跑路</h2><p>将虚拟磁盘目录拷到新位置(另一台计算机)</p><figure class="highlight ps"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.\LxRunOffline.exe register <span class="literal">-n</span> Ubuntu <span class="literal">-d</span> X:\Ubuntu</span><br></pre></td></tr></table></figure><p>或者使用 export / install 命令 导出/安装</p><h2 id="权限设置"><a href="#权限设置" class="headerlink" title="权限设置"></a>权限设置</h2><p>在WSL新目录的权限设置中，当前用户勾选“完全控制”，以免出现拒绝访问的错误。相关<a href="https://github.com/microsoft/WSL/issues/5605">issue</a>.</p><hr><ul><li>关于WSL的相关问题，查阅<a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">官方文档</a>.</li><li>运行<code>LxRunOffline.exe</code>, 会弹出帮助文档</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Tech </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> trick </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Windows 迁移Anaconda到其他分区</title>
+      <link href="Tech/move-conda-windows/"/>
+      <url>Tech/move-conda-windows/</url>
+      
+        <content type="html"><![CDATA[<ol><li><p><strong>编辑环境变量并移动</strong>  </p><p> <code>此电脑 -&gt; 属性 -&gt; 高级系统设置 -&gt; 高级 -&gt; 环境变量</code> 或者Win+S搜索”PATH”进入“编辑系统环境变量”。 </p><p> 根据安装时选择的为所有用户安装/为当前用户安装，分别查看系统PATH/用户PATH, 找到对应路径，移动到想要的目录，并修改相关PATH条目为新的位置即可。  </p><p> <code>echo %PATH%</code> 或者 重启计算机 使对PATH的更改生效。  </p><p> 执行<code>conda -V</code>检查是否迁移成功。  </p></li><li><p><strong>重装pip</strong>  </p><p> 重装pip以解决pip Fatal error in launcher 错误:  </p><p> <code>python -m pip uninstall pip</code> 卸载pip,<br> cd 到 Anaconda3\Scripts 目录下，<br> 执行 <code>easy_install.exe pip</code> 以安装pip.</p></li><li><p><strong>后续</strong></p><p> 一怒之下卸载了，安装在WSL2里。那样也方便环境迁移，带上一个VHDX文件就走，也防止系统崩溃不得不格式化C盘的狼狈。<br> 白忙活（笑）</p></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> Tech </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> trick </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>崔健：为什么要五官挪位地唱这首歌，是因为内心有需求</title>
+      <link href="Music/cuijian-interview/"/>
+      <url>Music/cuijian-interview/</url>
+      
+        <content type="html"><![CDATA[<p><a href="https://yixi.tv/#/zhiya/detail?id=17&episodeId=34">采访视频源地址</a><br>偶然看到，收集摘录于此。受教了。</p><h2 id="这不是一个高大上的标准，这是一个底线"><a href="#这不是一个高大上的标准，这是一个底线" class="headerlink" title="这不是一个高大上的标准，这是一个底线"></a>这不是一个高大上的标准，这是一个底线</h2><p>流行音乐必须得融合到社会的综合范畴里去谈论。美国的流行音乐，一代一代地推翻、一代一代地去引领世界。上个世纪的布鲁斯音乐、摇滚音乐、爵士音乐、Hip-hop音乐，这些有影响的音乐全是从美国来的。可能是因为它始终跟社会平等，而且它们每一个音乐都有严格的介入时代的标准。它在批判这个社会。摇滚乐在批判，布鲁斯音乐在抱怨，Hip-hop音乐在骂种族歧视，所有东西都能找到它跟社会之间发生关系的那些点。</p><p>美国流行音乐有非常完善的一些奖励体制，包括像格莱美奖、Billboard、MTV奖，促成了这个工业的良性竞争。而且有法律的保护。我骂社会，谁要管我，拿出你的依据来。谁也不敢去限制。</p><p>有一首歌叫《去他妈的警察》，都拍成电影了。就是因为警察把黑人无缘无故地摁在地上检查。但是他并不是反警察体制。最后他也解释了，他说我们不是反对这个体制，是反对你们对我们黑人的态度。无缘无故把我摁在地上去检查，就是因为我们黑，所以他们骂警察。这种矛盾造成了整个Hip-pop音乐的一些蓬勃发展。所有人都在骂，都以批判现实为荣，甚至把拿起枪去保护自己的权利。</p><p>当然也有另外的一些人反对，觉得这样太危险，说我们用音乐、用唱片换枪。有一些特别美好的保护音乐运动也是黑人搞起来的。他们把自己私藏的枪让孩子交出来，换唱片、换音乐。这样的音乐一丰富起来，你不可能没有影响，它的能量就大。</p><p>中国流行音乐的需求全都是因为时尚。他的力量是假的，从美国那儿学的；发型也是学的，一系列的造型全是学。学日本、学韩国，韩国又是学的美国——全是这种学复制品的复制。</p><p><strong>为什么要有力量？为什么要有这种音色？为什么要有这种节奏？为什么要五官挪位地唱这首歌？是因为有内心需求。亚洲其他的那些流行音乐，他们也都做到了：音色像摇滚，外表还挺帅，服装也特别时尚。但一看他们的内容就感到尴尬：他们不是摇滚。外表上说自己是摇滚，但内心怎么也不是摇滚。因为他们内心里面没有需求，没有对力量的需求。为什么要有力？力量是要挣破枷锁的。他们没感觉到枷锁，或者他们见着枷锁就躲，甚至想利用枷锁，把枷锁化为时尚去获取更大的利益。</strong></p><p>很多人又会说你这个年代的人就会看到这些问题，没有看到时代的时尚和光彩，不是像你说的这样——恰恰相反，我那个时代也一样有这样的东西，而且比这可能还过分。区别就在于它们是主旋律而并不是主流，现在主旋律没有消失还多了一个主流。那个时候是只有主旋律没有主流，所以我们出现的时候，恰恰还充当了那一段时间的主流文化。就像《一无所有》和《花房姑娘》仍然被称为是那个时代的主流音乐，是因为那当时没有其他的音乐去替代非主旋律文化、主旋律音乐，正好我们出现在那个时候。</p><p>就是因为他们做了这个标签，因为我的《一无所有》和《花房姑娘》在当时火了，所以我的标签就永远贴在那个时代。而无论我的精神怎么更新，怎么去面对现实、面对困惑，他仍然认为我没有看到这个时尚的价值，我脱离了时代。只要我没有写出像《花房姑娘》和《一无所有》那样脍炙人口的歌曲，他们可能就多了一个诋毁我或者屏蔽我的理由：你连那个时候都不如，你今不如昔。我所有面对现实的努力全都是被他们屏蔽掉的，而且有人拍手叫好。</p><p>像我还一直在小地方演出，我还是有很多的生存的机会。但是有很多年轻人就没有，他们真的不知道怎样给自己创造演出的机会，真的不知道。</p><p>大型的官方的文艺活动取消之后，摇滚音乐节才遍地而生。以前都是《心连心》《同一首歌》这种节目，全国各地的政府买单，送票给观众，大量的电视台转播。他们的概念里这就是大型的音乐文化活动，并且造成了一种时尚。年轻人认为我看到的东西就是时尚，我看不到的东西都是过时。这就是目前来说我们的音乐环境。</p><p>回到我自己，有很多人来问我为什么要开演唱会，而且我敢这么说，所有认为老崔没有作品或者没有活动为什么又搞演出的都会带着这种心态来问——我刚才已经回答了若干个这样的问题了。他们带着这种偏见就来问我，根本就不知道我写了《混子》，根本不知道我的《红旗下的蛋》以后的任何作品，根本不知道我拍了一个电影。我所有的东西都会被认为是在苟延残喘，是因为借用过去的资源，可以说是在发一些余光而已：你也扑腾不了几年了，赶紧吧。</p><p>我说我这是B面的开始，我的A面结束了。他们根本就不会理解我这样说话。而且由于我的活动少，我积累的一些能量后来要逐渐释放，可他根本就不相信，根本就不理解。</p><p>而恰恰中国现在正好需要艺术家站出来说话，因为有个巨大的真空，空气已经越来越薄了。人的情感、理性和人的信仰不在一个点上，最起码有一项或两项不在一个共同点上。我认为这个人就是有问题，这个社会也出现了这个问题。可谁都不愿意去思考这个问题。那你还当什么艺术家，你还写什么作品，你还写什么书，你还当什么媒体，你还记录谁？你连这种基本的思考都没有。<strong>这个不是一个高大上的标准，这是一个底线。人不关心人的这种状态，等于就是不关心自己的底线。</strong></p><p>很简单的一个问题，<strong>我们自己在走向何处</strong>？这个基本的问题谁都不会真正去想，有这种思考基础的人没有这个话语权。我们的文化人，包括我们所有人，实际上都有一个愿望危机。我们不知道自己要干吗，挣钱都不知道为了干吗。攀比、稳定是两个仅有的能够看得见摸得着的价值的具体证明——我比别人好了，哎我高兴了；我们的社会稳定了，领导高兴了——基本上就是这样了。</p><p>经常碰到一些人说老崔你怎么谈论政治问题，我不愿意听你谈政治，你还是回去好好唱歌吧。大量的人这样说我，说你不就一唱歌的吗？甚至有人说“婊子无情戏子无义”，说你怎么可能谈论这么严肃的社会问题，你的思考根本不如我们社会科学院的，我们都还不敢想这些问题呢，你凭什么想这些问题？</p><p>可是我再怎么唱歌、再怎么写歌、再怎么演电影，我也是人哪。我也长着五脏六腑，我也有七情六欲。我也应该有理性思考，我也有信仰，我的信仰也是我最基本底线的一种证明。我谈论的都是这些，并没有超过这些东西。大量的人不愿意跟我谈论这个问题，觉得我在跨行谈论一些事情。</p><p>仔细想想，中国的话语权从来就没有落在过思想者和艺术家手上。历史以来从来没有，全都是隔代的。就是他死了以后，他的话语权才被证明，而且也不是他人的话语权，只是作品的话语权。</p><p>我也有既得利益，而且我们就是我们所讨厌的那个体系里的一个拥护者。我们没有什么高大上的境界，跟他们一模一样。我们也在体制中钻空子，也撒谎。然后我们自己还视而不见，还去贬低年轻人。他们诋毁我们的时候我们还不高兴，他们摧毁我们偶像的时候我们也说“你这个小屁孩，你懂个屁啊”。其实我们就是那些人，我们就是自己内心里、理想中反对的那些人。我们自己在年轻人面前也一样。</p><p>所以我觉得我们应该说出一些东西来，要把这些话匣子打开，给年轻人创造一些释放自己的机会，哪怕他们释放的过程当中体现的是对我们的反感。我宁愿看到他们的投入，他们专注的状态，也不愿意让他们去捧任何人的臭脚。</p><p>我觉得年轻人最大的美就是因为他们专注。所谓年轻人的勇敢也不是因为他们莽撞，而是因为专注。所以我们不要打扰他们的专注，同时给他们专注的机会。我们要保护他们的专注，实际上就是保护这个能量，等于也是保护我们这个民族的能量。</p><p>我的能量也许就是音乐。所有东西都是音乐给我的。</p><h2 id="我确实没看到一个人像我做的音乐——这么没有焦点"><a href="#我确实没看到一个人像我做的音乐——这么没有焦点" class="headerlink" title="我确实没看到一个人像我做的音乐——这么没有焦点"></a>我确实没看到一个人像我做的音乐——这么没有焦点</h2><p>我一般都去有现场音乐的酒吧，没有乐队的酒吧我很少去。没现场音乐我在那抓耳挠腮的，不知道要干吗。有音乐的话我的眼睛就能落在一个位置上，也是拒绝跟别人聊天的一个很好的环境。</p><p>最高兴的时候就是看人freestyle/Hip-hop，没有比这个更新的音乐让我感到那种震撼了。因为他想什么就说什么，这种人得达到一种自由的状态，而自由创造的状态他必须得专注，这个专注已经超越了勇敢。</p><p>当你专注的时候，那里面有勇敢，有天才，有洞察力和理性，同时有音乐，简单的勇敢已经说明不了问题。那真的是一种人的状态的美，就是一旦进入这种状态你就会喜欢他。那种感觉让你觉得叫出来都不忍心。如果你说“哎谢谢你，你别再唱了”，你会觉得自己在干一件坏事儿。</p><p>我自己开创了一些属于中国的自由说唱、口音说唱，配上电子音乐。比如说《农村包围城市》，是我用唐山话唱的一首歌，音乐是电子音乐。我还有一首歌叫《网络处男》，是一个Hip-hop音乐，用山东话唱的。还有一首《蓝色骨头》，那是普通话的说唱。</p><p>《混子》《时代的晚上》《解决》《不是我不明白》……我自己算了一下，说唱歌曲有差不多十五首，我觉得我可以开一个“说得比唱得好”的音乐会了。</p><p>我不知道你们听没听过我的《舞过三八线》。有很多人认为那是秧歌点儿，但是实际上听得懂的音乐人都知道，那里面有Reggae和朝鲜音乐的影响。《不是我不明白》里面电子编的那个鼓点是拉丁音乐的一些典型元素，《混子》也有桑巴的元素，是Hip-hop和桑巴音乐的融合。我有大量这样的音乐。</p><p>我自己风格的融入是非常冒险的。很多音乐评论人都直截了当地批评我的音乐风格没有焦点，太多元化了。我自己确实没有看到一个人像我做的音乐这么没有焦点：一会儿说唱，一会儿世界音乐，一会儿民谣，一会儿重摇滚，一会儿流行摇滚，什么都有。</p><p>所以很多人会认为听我的音乐他不能够飞起来。就好比我每辆车只开到120迈，然后我换了一条路，开到120迈又换路了。他们想尝到200迈、180迈的滋味，可惜我的音乐里没有。</p><p>因为你要开到180迈的速度，你必须得有很好的路况，有很好的车，有很好的心态。只有这些综合的东西才能够真正享受到180迈的速度，或者是飞机飞起来的速度。而他们听我的音乐总是被打断，看我的电影也是，这就是我的风格。</p><p>喜欢我音乐的人他们能飞起来，肯定是因为他们有这个素质：我哪首音乐实际上都只不过就是换路了，而且哪条路在我这里都没有什么障碍，都能飞到180迈，只有我自己感受到180迈。</p><p>我特别怕重复，特别怕连续一种风格的歌。比如连续《一无所有》我会很累，连续《一块红布》我也会很累，所以我必须得搭配起来。</p><p>《光冻》这张专辑积累了也有十几年了，有的作品是十几年前写的。我想把这个作品做成一个相对来说风格化的、旋律型的东西，因为走时尚是最容易的一件事，玩说唱我得心应手，但玩旋律是我的一个软肋。我自己实际上对旋律把握的耐心是不充足的，所以我要把自己的耐心完全集中起来，做一个有完全旋律的作品，这对我来说是一个挑战。</p><p>我听这张专辑会有很多很多的感受，甚至我觉得它不是我的作品，它是若干个我，或者若干个人用我的手去完成的，里面有很多很多我在不常进入的状态里面完成的表达。</p><p>比如说《光冻》这首歌，原来不叫《光冻》，叫《光的背面》。后来我就发现这个表达已经不准确了，于是逐渐改成了叫《光冻》，然后修改歌词，甚至连最后专辑就叫《光冻》。</p><p>这种东西真是到最后才意识到自己找到了这个点。我从来没有觉得自己被冻住过，后来我发现每一个人在某种情况下就被冻结了。这种冻结有可能就是时间的压缩，当它融化的时候，它有不一样的氧化感，它和别的时代也能够发生氧化。</p><p>当人们意识到自己的能量和权利的时候，会更容易听懂这张专辑；当大家没有这个意识的时候，肯定会觉得我这个专辑很老。</p><p>创作的方法很多，当然最主要的方式还是先出歌曲。先出动机，然后出和声，和声以后出旋律，之后是填词，填完词以后起名，跟别人正好相反。当然也有个别的歌是反过来的：上来就有一个标题，接着是一个内容的主线。大部分都像我刚才说的第一种那样，甚至到了最后唱片快出来之前，印刷品小样都打出来了，我说这名字得改。</p><p>我没觉得这两种方法有什么特别大的不同，只不过就是个人的特点。条件允许的情况下，我比较喜欢前一种方式，因为我比较注重律动。我觉得它是我对音乐兴趣的一个引擎。如果我对音乐没有兴趣，只是拿把箱琴的话，估计可能一年也写不出一首歌来，我经常抱着琴没感觉。</p><p>我甚至连记录的习惯都没有，有什么灵感了就记在脑子里面，如果忘了就算了。如果第二天起来想起来了就写，没想起来就忘了。其实大量东西还是音乐给我一个框架。我觉得我做音乐的这种方式不像写日记那样。有的人一天出一首歌，我挺希望能那样的，可是我做不到。</p><h2 id="自由照在不做事的人身上有什么用呢？"><a href="#自由照在不做事的人身上有什么用呢？" class="headerlink" title="自由照在不做事的人身上有什么用呢？"></a>自由照在不做事的人身上有什么用呢？</h2><p>其实摇滚乐并不是以批判为主的一种音乐形式。我有很多的音乐就是讲爱情，比如《北京故事》《花房姑娘》《金色早晨》，包括《一块红布》，这些完全是一种男女之情给你带来的想象，没有什么太多反叛的东西。我只是在很多专写情歌的人面前是有反叛精神的，但要是真跟那些反叛的人比的话，我有很多歌是情歌。</p><p>我看到雷洋那个事件，有很多人都团结起来想怎么着怎么着，他们可能也期待着我们写一首歌，可是我们也没写。真的没有社会上发生一件事我们要去写首歌，说实话我们也没有本能的这种冲动。为什么别人一关注了，我们就要去写一首歌？</p><p>反过来一比就发现有些人比我们更有批判意识，而且我们自己写的一些我们认为有批判性的歌，跟他们一比的话就有点拐弯抹角，或者说有点已经经过自我审查了，已经打了一些折扣了。</p><p>可能也会有人因为这个批评我们，但是我们也会时不常地拿出来一首两首。比如说像《盒子》这首歌，在出版的时候就必须得把歌词拿下来，后来被很多人听完放在网上，大家才知道这首歌。</p><p>逐渐逐渐这首歌已经变得过了，没有那么大的影响力了。因为好像大家接受批评的这种心理肌肉已经锻炼起来了，而且也会觉得“打是疼骂是爱”，觉得一个艺术家对自己的国土有一份情感，所以他们才会去批评一些东西。所谓的官方的政审的人也逐渐接受了这一点。甚至有人说你要是不骂还搞什么摇滚啊？你要是成天歌功颂德的话我们要你干吗，你不是跟总政文工团一样了吗？他们逐渐开始接受了这个现实，而且必须要更大地接受。</p><p><strong>我觉得中国现在也需要艺术家站出来，要不断地冲击，冲一下他的肌肉承受力的极限。这块杠铃已经举起来，好吧，再给你加一个。让他们更多地去承受，一直达到他们的理性彻底强大。不光是心理肌肉，甚至是控制肌肉的完善。</strong></p><p>实际上一个落后的体制，坍塌的最主要原因肯定是累死的，并不是所谓的瓦解，当然瓦解也是累死的。政治也是一门物理——你怎么样地去利用反的力量来保护国家体制的完善。</p><p><strong>什么叫强大，就是你有非常强大的控制平衡的能力。平衡和中庸正好是两回事，中庸是放弃所有的极端，平衡是利用所有的极端来造成平衡。就像一个三脚架一样，最受力的地方肯定是支得最宽的地方，那样才能支得高。最极端的支撑点的分散，才能造成你的承重力和至高点不断地加重和生产。如果你把腿都放在一起，以为有三条腿，实际上只是一条腿的功能。</strong></p><p><strong>一个伟大的人肯定首先是一个反思者。所有的人都得让自己的问题最小化，让自己的利益最大化。但这个让自己的问题最小化的过程，必须是通过反思来完成的。这样你才能够理解别人的反思，你才能给别人反思的机会。自己没有反思的机会，不给自己民族的调整能力，自然就会被别人征服。</strong></p><p><strong>自己站出来说本民族的缺点，是这个民族最有颜面的事情，这是在自我调整、自我完善。当别的民族再给你指出问题这就叫欺负你，这叫文化输入、文化侵略。但为什么不给自己的艺术家这样的权利？</strong></p><p>我觉得所谓的言论自由不是体现在政治攻击上，所谓的言论自由是在于自由畅想。什么叫自由？躺在海边上睡觉的人那不是自由的权利。自由是给干事的人，是一点一滴的工作、争取每一件事都要做成的那些人，自由对他们来说才是有价值的。成天躺在那儿说大话、骂街，那种人拥有自由权利的意义是什么呢？阳光照着我是浪费，雨水早就是白给。自由的气息照着这些人身上有什么用呢？给这些不做事的人一些自由的权利有什么意义？就应该把自由的权利分给那些做事的人，让他们产生社会价值。</p><h2 id="再不抓紧爵士音乐教育，中国音乐肯定会断层"><a href="#再不抓紧爵士音乐教育，中国音乐肯定会断层" class="headerlink" title="再不抓紧爵士音乐教育，中国音乐肯定会断层"></a>再不抓紧爵士音乐教育，中国音乐肯定会断层</h2><p>就像一个季节一样，冬天有冬天的好处，夏天有夏天的好处，春天有春天的那种美，都不一样。我觉得表演也很高兴，因为音乐一响起，你随着节奏去动自己的身体的时候，那个感觉肯定不是装出来的快乐，那是真的一种享受，对生命的一种享受。那种大汗漓淋的表演，跟自己喜欢的人在一起，开开玩笑，乐呵呵地就把工作做完了，把钱拿到了。</p><p>当然能挣大钱的话那真的是很小很小的一个比例，甚至有很多人说了，音乐这个产业就是5%的人在获取着95%的资源，因为他们钱挣得太多了。真正95%的音乐家可能就得苦哈哈的，但他们自己不认为苦。特别是一些爵士音乐，他们可能一年要演二三百场，一个成名的音乐家可能一年还得有三十场到五十场演出，这都是很正常的。但是依然让人非常非常快乐，因为你做音乐的过程当中就很快乐。</p><p>我们乐队的人都是爵士音乐家，他们看不起摇滚乐，都不跟我聊音乐，他们觉得最伟大的音乐就是爵士音乐。我跟他们谈论歌词，他们都觉得无所谓。“唱什么知道吗？”“不知道、无所谓。”</p><p>我觉得摇滚乐的好处是在于它实际上适合我，因为它的多元性，这里面有文学性，有歌词，有诗歌，有它力量感的东西。摇滚乐特别简洁，你刚学了三个和声，会打几个基本的节奏就能够释放自己，这种美好是别的音乐没有的。</p><p>当音乐给你树立起了一个结构的时候，你自然就会想写这样的歌词，你自然就想找到一些它刺激你的力量的原因。何况布鲁斯音乐、爵士音乐、Funk音乐、Hip-hop音乐，全都是一个脉络上出来的。真正懂音乐的人就会知道，这些东西是一样的。</p><p>摇滚乐可能跟古典音乐有比较明确的分界线，古典音乐是看着谱子演奏。所以即兴的能力不是古典音乐家所要必须具备的素质，但是作为Funk音乐、布鲁斯音乐、摇滚音乐，你必须都得掌握即兴，不能看谱子的，看谱子反而成为笑话了。这个正好跟古典乐有一个最明确的差异。</p><p>实际上只要是你内心里面喜欢的音乐，这种转换是很容易的。很多西方的古典音乐家也是非常好的爵士音乐家、摇滚音乐家，这些音乐家是没有差异的，北欧有大量的古典音乐家玩摇滚。</p><p>其实我周围都是这样的人，这些年轻人完全是首席的能力，但他就受不了坐在那儿穿着西服演奏别人的作品，跟人攀比技术。他觉着我就应该换掉这工作，专心地去做即兴演奏或者摇滚。虽然他们也有能力去写谱子，但是一旦写一次就忘掉。他只是做一个简单的准备工作而已，完全可以在演出的时候扔掉谱子。所以你看他们表演都是特别即兴，你感觉他们是在即兴，实际上他们也是有非常强的记谱方法和记谱能力，甚至有作曲能力。</p><p>我觉得中国如果还不去抓紧爵士音乐教育的话，在音乐上肯定会断层，会出一个大的真空，很容易就是只有流行音乐和古典音乐，而且流行音乐也是很低级的。现在东南亚华语地区基本上就是这种状态，只有古典音乐和流行音乐，没有其他的音乐。</p><p>首先音协就控制。当选音协的人有可能都是做古典音乐的，甚至有一些是作词的人，他们根本就对音乐一知半解。甚至国外的——所谓的华语地区的一些音协主席都是电影明星，他就没有真正地为音乐教育去思考，去理解音乐家的困惑，去理解音乐教育的一些弊病。如果没有做事先的预防，没有做真正的对症下药的一些补救工作，这些东西都是很危险的。</p><p>音乐对人的素质的影响太重要了。但你仔细看看中国的教学大纲，对音乐考试都是很不在意的。而且音乐的普及程度实际上都有点糟糕，特别是偏远地区，它甚至连音乐这俩字儿都不知道什么东西。一说音乐只觉得这是茶余饭后、陪人喝酒吃饭的一个背景音乐，对他来说根本就不重要，完全不理解音乐对人的影响。</p><p>说句实话，现在是有一点迫在眉睫。中国真的应该重视音乐教育，不光是古典音乐教育。古典音乐教育大家都在攀比技术、分级，都是为了争取另外的东西，而并不是音乐本身对于人的刺激。结果很多的音乐学院呢，这边手上刚刚放下帕格尼尼，这边拿起卡拉OK——他居然完全欣赏不了他所研究的东西。他是在研究一个行业、演奏一个音符，但内心里面欣赏的是卡拉OK，这种东西很恐怖。</p><p>音乐给你的感受就是直觉的，音乐不能骗你。甚至任何关于音乐的理论，只要他说出口就已经错了。什么叫音乐，音乐就是你听起来舒服，听着过瘾。千万不要被那些理论的东西误导。你就相信自己的耳朵，也不用太多地去总结、归纳出什么理论介绍给别人，就感受、多听。喜欢就听，不喜欢就扔在一边，你会逐渐地发现它的那种魅力，那个感受就像看音乐会一样。你看它的歌词可能经常会哭，你会发现这个人的苦，会发现你在欣赏自己的年代，而且你会看到自己。</p><p><strong>我觉得看自己是不需要眼睛的，因为眼睛是看别人的。当今的媒体都是以视觉为主，所以大家都在重视别人。我相信在有镜子之前肯定先有音乐。人类要想感受到自己肯定是耳朵，眼睛肯定是看外界的。</strong></p><p>舞蹈形式的出现肯定是因为先有节奏，大家先找到了一种律动才出现了舞蹈。这个过程当中你开始发现自己的存在，甚至觉得在跟自己身体的互动过程是一种哲学，是一种美德，觉得在尊重自己的身体，同时也在尊重别人的身体。这种东西一直延续在现代音乐里边，推翻了所有的古典音乐的理论。你再有什么样的造诣，没有律动没人听的。</p><p>现在大家听就很简单，就“1 2 3 4—啪”，90%的音乐节奏是这样的，四拍，重拍在二和四上。为什么？这个东西没办法，因为它长在你的身体里。所以这种东西逐渐就会变成了所谓的用任何理论摧毁不了的一种音乐形态，就是流行音乐，因为它长在你的身体里。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Music </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hello World Again</title>
+      <link href="uncategorized/hello-world/"/>
+      <url>uncategorized/hello-world/</url>
+      
+        <content type="html"><![CDATA[<p>不折腾不跑路了</p><p>Hexo博客 with <a href="https://github.com/probberechts/hexo-theme-cactus">catus</a>主题，<a href="https://www.jsdelivr.com/">jsDelivr CDN</a> 分发<br>disqus评论（在中国大陆可能无法正常访问）</p><p>保持清洁的样子吧~  </p><p>当初想建一个博客是因为自己难以忍受碎片化的表达，又偶然间看到了<a href="https://yihui.org/">谢益辉</a>的博客，心中大痒。谢的博客是基于 <a href="https://gohugo.io/">Hugo</a> + <a href="https://github.com/yihui/hugo-ivy">Ivy主题</a> 的，很喜爱这样的风格。于是自己去了解 Hugo 和 Github Pages，但当时 Hugo 的主题并不丰富，自己也没能力制作，就几经辗转，试过WordPress, <a href="https://hexo.io/">Hexo</a> 和 <a href="https://github.com/getgridea/gridea">Gridea</a>，有一段时间搬到VPS上，中途因为各种原因甚至搁浅过大半年。最后考虑到VPS配环境总要重启甚至重装之类的麻烦，还是借助静态页托管吧。同时自己也想不出什么鬼点子租下一个满意的域名，*.github.io 其实也不错，遂选定 Github Pages 托管。又某次偶然在下载某个包的时候看到URL很是令人熟悉(jsdelivr.com)，它支持GitHub的内容分发且在中国大陆速度不错，所以微小地修改了博客主题的配置，使css、js、字体、媒体文件都通过jsDelivr分发，总算是在中国大陆达到了可以接受的访问速度。  </p><p>高中时候总爱自己写些什么东西，解闷吧遐想吧自我倾诉吧，怎样都行。上大学渐渐离开纸笔，心也一度浮躁，看不下纸质”闲书”了，听音乐倒是比较能坚持。这样挺混蛋的，总得想些什么写些什么吧，开个博客记录些什么似乎也不错。记忆总能反刍些值得再次反刍的东西。多年之后回看，会牵动我的情绪，会令我回忆，微笑爬上嘴角眼梢，那样挺不错的。</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>37位记者四万字全景调查：新冠病毒何以至此？</title>
+      <link href="Life/wuhan-caixin/"/>
+      <url>Life/wuhan-caixin/</url>
+      
+        <content type="html"><![CDATA[<p>搬运财新周刊对武汉的四篇封面报道。来源于2020年第四期。<br><a href="https://archive.org/">网站时光机</a>档案链接：<a href="https://web.archive.org/web/20200202012931/http://weekly.caixin.com/2020-02-01/101510145.html">1</a>, <a href="https://web.archive.org/web/20200202030241/http://weekly.caixin.com/2020-02-01/101510146.html">2</a>, <a href="https://web.archive.org/web/20200201235636/http://weekly.caixin.com/2020-02-01/101510144.html">3</a>, <a href="https://web.archive.org/web/20200201235838mp_/http://weekly.caixin.com/2020-02-01/101510143.html">4</a>.  </p><h2 id="其一-现场篇"><a href="#其一-现场篇" class="headerlink" title="其一 现场篇"></a>其一 现场篇</h2><p><img src="https://cdn.jsdelivr.net/gh/coldercoder/coldercoder.github.io/images/wuhan-caixin-1.jpg" alt="1">  </p><h2 id="其二-疑似病人难题"><a href="#其二-疑似病人难题" class="headerlink" title="其二 疑似病人难题"></a>其二 疑似病人难题</h2><p><img src="https://cdn.jsdelivr.net/gh/coldercoder/coldercoder.github.io/images/wuhan-caixin-2.jpg" alt="2">  </p><h2 id="其三-解毒篇"><a href="#其三-解毒篇" class="headerlink" title="其三 解毒篇"></a>其三 解毒篇</h2><p><img src="https://cdn.jsdelivr.net/gh/coldercoder/coldercoder.github.io/images/wuhan-caixin-3.jpg" alt="3">  </p><h2 id="其四-国际篇"><a href="#其四-国际篇" class="headerlink" title="其四 国际篇"></a>其四 国际篇</h2><p><img src="https://cdn.jsdelivr.net/gh/coldercoder/coldercoder.github.io/images/wuhan-caixin-4.jpg" alt="4">  </p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Life </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> event </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>高考那年印象最深刻的片段?</title>
+      <link href="Life/gao-kao/"/>
+      <url>Life/gao-kao/</url>
+      
+        <content type="html"><![CDATA[<p>近日临近高考，便涌现此一问题。<br>一念想，决定写些什么，权当回顾。<br>想了想觉得无话可说，因为不必说，也未必愿说。<br>不必说是因为人人类同，不愿说是因为不堪回首。  </p><p>现在想来当初过于执着了，如果让我再来一遍，会依旧如彼。<br>所谓 自知者明，自胜者强。<br>一年年过去，自胜的想法渐渐冷下来，自知倒是长进了不少。<br>知，然后谅解。</p><hr><p>那么多话，皆是故意跑题。<br>因为实在不愿说，这是我的克制。<br>实在要讲些什么，那便只有这一场景：<br>夜半临窗凝望，远处的路灯正奋力刺破黑暗</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Life </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>平遥偶遇唱片店（二）</title>
+      <link href="Life/pingyao-record-store-2/"/>
+      <url>Life/pingyao-record-store-2/</url>
+      
+        <content type="html"><![CDATA[<p>午后泡在CD店里，与老板听歌并漫谈。<br>有游客经过，探头内望一二，进门询问老板能否拍照。<br>老板笑笑，可以。<br>又补一句，问了就可以，不问就不可以。<br>游人也笑：问过才可以是吧。<br>“你没懂我的意思，你问，就表明你对我的尊重.”  </p><p>此一人间温情诚可贵<br>然而<strong>可</strong>易逝，<strong>不可</strong>又过于软弱<br>奈何？  </p><p><img src="https://i.loli.net/2019/05/25/5ce92355c5bad85943.jpg"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Life </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>VSCode LaTeX Workshop config backup</title>
+      <link href="Tech/latex-workshop-config/"/>
+      <url>Tech/latex-workshop-config/</url>
+      
+        <content type="html"><![CDATA[<ol><li><p>Open <code>settings.json</code></p></li><li><p>Paste the follwing content  </p></li></ol><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line"> </span><br><span class="line"> &#123;</span><br><span class="line">    <span class="attr">&quot;latex-workshop.latex.recipes&quot;</span>: [&#123;</span><br><span class="line">    <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;xelatex&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;tools&quot;</span>: [</span><br><span class="line">        <span class="string">&quot;xelatex&quot;</span></span><br><span class="line">    ]</span><br><span class="line">  &#125;, &#123;</span><br><span class="line">    <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;latexmk&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;tools&quot;</span>: [</span><br><span class="line">        <span class="string">&quot;latexmk&quot;</span></span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  </span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;pdflatex -&gt; bibtex -&gt; pdflatex*2&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;tools&quot;</span>: [</span><br><span class="line">        <span class="string">&quot;pdflatex&quot;</span>,</span><br><span class="line">        <span class="string">&quot;bibtex&quot;</span>,</span><br><span class="line">        <span class="string">&quot;pdflatex&quot;</span>,</span><br><span class="line">        <span class="string">&quot;pdflatex&quot;</span></span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">&quot;latex-workshop.latex.tools&quot;</span>: [&#123;</span><br><span class="line">  <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;latexmk&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;command&quot;</span>: <span class="string">&quot;latexmk&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;args&quot;</span>: [</span><br><span class="line">    <span class="string">&quot;-synctex=1&quot;</span>,</span><br><span class="line">    <span class="string">&quot;-interaction=nonstopmode&quot;</span>,</span><br><span class="line">    <span class="string">&quot;-file-line-error&quot;</span>,</span><br><span class="line">    <span class="string">&quot;-pdf&quot;</span>,</span><br><span class="line">    <span class="string">&quot;%DOC%&quot;</span></span><br><span class="line">  ]</span><br><span class="line">  &#125;, &#123;</span><br><span class="line">  <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;xelatex&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;command&quot;</span>: <span class="string">&quot;xelatex&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;args&quot;</span>: [</span><br><span class="line">    <span class="string">&quot;-synctex=1&quot;</span>,</span><br><span class="line">    <span class="string">&quot;-interaction=nonstopmode&quot;</span>,</span><br><span class="line">    <span class="string">&quot;-file-line-error&quot;</span>,</span><br><span class="line">    <span class="string">&quot;%DOC%&quot;</span></span><br><span class="line">  ]</span><br><span class="line">  &#125;, &#123;</span><br><span class="line">  <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;pdflatex&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;command&quot;</span>: <span class="string">&quot;pdflatex&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;args&quot;</span>: [</span><br><span class="line">    <span class="string">&quot;-synctex=1&quot;</span>,</span><br><span class="line">    <span class="string">&quot;-interaction=nonstopmode&quot;</span>,</span><br><span class="line">    <span class="string">&quot;-file-line-error&quot;</span>,</span><br><span class="line">    <span class="string">&quot;%DOC%&quot;</span></span><br><span class="line">  ]</span><br><span class="line">  &#125;, &#123;</span><br><span class="line">  <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;bibtex&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;command&quot;</span>: <span class="string">&quot;bibtex&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;args&quot;</span>: [</span><br><span class="line">    <span class="string">&quot;%DOCFILE%&quot;</span></span><br><span class="line">  ]</span><br><span class="line">  &#125;],</span><br><span class="line">  <span class="attr">&quot;latex-workshop.view.pdf.viewer&quot;</span>: <span class="string">&quot;tab&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;latex-workshop.latex.clean.fileTypes&quot;</span>: [</span><br><span class="line">  <span class="string">&quot;*.aux&quot;</span>,</span><br><span class="line">  <span class="string">&quot;*.bbl&quot;</span>,</span><br><span class="line">  <span class="string">&quot;*.blg&quot;</span>,</span><br><span class="line">  <span class="string">&quot;*.idx&quot;</span>,</span><br><span class="line">  <span class="string">&quot;*.ind&quot;</span>,</span><br><span class="line">  <span class="string">&quot;*.lof&quot;</span>,</span><br><span class="line">  <span class="string">&quot;*.lot&quot;</span>,</span><br><span class="line">  <span class="string">&quot;*.out&quot;</span>,</span><br><span class="line">  <span class="string">&quot;*.toc&quot;</span>,</span><br><span class="line">  <span class="string">&quot;*.acn&quot;</span>,</span><br><span class="line">  <span class="string">&quot;*.acr&quot;</span>,</span><br><span class="line">  <span class="string">&quot;*.alg&quot;</span>,</span><br><span class="line">  <span class="string">&quot;*.glg&quot;</span>,</span><br><span class="line">  <span class="string">&quot;*.glo&quot;</span>,</span><br><span class="line">  <span class="string">&quot;*.gls&quot;</span>,</span><br><span class="line">  <span class="string">&quot;*.ist&quot;</span>,</span><br><span class="line">  <span class="string">&quot;*.fls&quot;</span>,</span><br><span class="line">  <span class="string">&quot;*.log&quot;</span>,</span><br><span class="line">  <span class="string">&quot;*.fdb_latexmk&quot;</span></span><br><span class="line">],</span><br><span class="line">  &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><ol start="3"><li>Overleaf真香</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> Tech </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Coding </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>平遥偶遇唱片店（一）</title>
+      <link href="Life/pingyao-record-store-1/"/>
+      <url>Life/pingyao-record-store-1/</url>
+      
+        <content type="html"><![CDATA[<p>又想起平遥古镇的那家唱片店<br>那算是我一生中拜访的的第一家唱片店<br>说是一家，记忆中其实是几平的斗室<br>推门而入，唱片叠满了两面墙，<br>望左看是一把fender telecaster，<br>一台黑胶唱机和Marshall Wornburn。<br>背后是一墙书，“这些不卖”。    </p><p><img src="https://i.loli.net/2019/05/01/5cc882607ad17.jpg" alt="左手一侧">  </p><hr></br><p>原想古城便是古城，新砖嵌旧墙，深巷清幽没于街上喧腾，假醋假酒假古物，千篇一律手工艺品。<br>然而能偶遇这家店实属意外之喜。足够幸运或者命当如此，总之没有错过。<br>问店家缘何将店开在这里，答曰：不喜欢竞争。心中怅然：与世无争，有谁能真正做到呢。  </p><p>其实哪有多少竞争。 数字化和移动化的时代，唱片店和书店纷纷凋零。<br>笔记本电脑也早已取消内置光驱的设计了。<br>技术总在进步，通用为便利。<br>专情者尚能被新技术之便利所打动，何况芸芸众生。<br>黑胶时代，放上唱针，便只有耐心且虔敬地随唱片转动 从头至尾听完一张碟。<br>如今买来CD，放入碟机，听马达转动，继而乐声响起，也是莫大的幸福。<br>听了前几秒又亟亟切歌的人们怎么会懂等待之美，又如何能理解彼此。<br>厌倦了等待，过于匆匆的脚步会带领我们奔向何处？</p><p>我曾写过：“在一切易得的年代，我们久违了初见之喜。”<br>岂止，但也只好抑而不语。  </p><p><img src="https://i.loli.net/2019/05/01/5cc8826089020.jpg" alt="墙角"></p><hr></br><p>起起落落过后，建一个理想的居所安顿自己。<br>碰壁流血结成谅解的疤，内心平和，有所爱。<br>此生亦足矣。  </p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Life </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Image in Markdown</title>
+      <link href="Tech/img-in-md/"/>
+      <url>Tech/img-in-md/</url>
+      
+        <content type="html"><![CDATA[<p>简单记录一下 Markdown内嵌图片 的做法  </p><p>在Markdown文件内插入图片，我们通常用 <code>![img label](URL Description)</code>。  </p><p>URL指向的可以是本地地址或者服务器路径，但会造成可移植性问题。<br>比较普遍的方法是将图片托管在图床上。  </p><p>图片经压缩后转换为Data URL内嵌在文档内，由编译器/浏览器渲染的方案，比起存放在图床，要令人安心一些。</p><hr><p>步骤如下：</p><ol><li><p>用 <a href="https://squoosh.app/">Squoosh</a> 或者其他图片压缩工具先将图片压缩至网络传输友好的程度.</p></li><li><p>用 <a href="https://ezgif.com/image-to-datauri">ezgif.com</a> 或其他任意转换工具将图片转换至 Data URL 形式。</p></li><li><p>像这样插入在Markdown文档内：<br><code>![img label](data:image/...)</code>  </p></li></ol><p>Base64编码一般很长，为了易读性，可将DataURL定义放在文末，在文中引用，如下所示：</p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">img label</span>][<span class="symbol">img ref</span>]</span><br><span class="line">......</span><br><span class="line">[<span class="symbol">img ref</span>]:<span class="link">data:image/...</span></span><br></pre></td></tr></table></figure><hr><ul><li>Data URL 推荐阅读：<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/data_URIs">MDN web docs - Data URLs</a><br><a href="https://en.wikipedia.org/wiki/Data_URI_scheme">Wikipedia - data URI scheme</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Tech </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> trick </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Baba O&#39;Riley - It&#39;s only teenage wasteland</title>
+      <link href="Music/baba-oriley/"/>
+      <url>Music/baba-oriley/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>荒废的生活，荒废的机会，荒废的时光；人们抱怨着这个世界的同时，也无力改变什么。– Townshend</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/coldercoder/coldercoder.github.io/images/baba-oriley.jpg" alt="cover"></p><p>Baba O’Riley 是 Pete Townshend 为英国摇滚乐队The Who写的歌，他本人也是乐队的吉他手和灵魂人物，为乐队创作了上百首词曲。这首歌最开始是Townshend为他的摇滚歌剧Lifehouse创作的。但是后来Lifehouse这个计划搁浅了，所以很多为此写的歌都收录在了The Who于1971年发行的第五张录音室专辑&lt;Who’s Next&gt;中。<br> <br>Baba O’Riley 这个初看意义不明的名字取自Meher Baba(一位印度的灵性大师) 和Terry Riley(一位美国作曲家和音乐表演家), 来自东方哲学的影响促成了Lifehouse这部摇滚歌剧的构想。</p><p>Lifehouse的故事设定在未来世界，英格兰在核战争后成了一片被污染的荒原，人们足不出户，与自然、与上帝甚至与自己隔绝。同时，在极权政府的文化管控下，人类沦为了一种虚幻的存在：人们缩在Lifesuits这种装置中，他们所谓的现实生活只是一种通过静脉注射的幻觉(这也被视为互联网的早期隐喻)。</p><p>而一位叫做Bobby的老人，有着对摇滚的解放力量的残存记忆。Bobby创建了Lifehouse，他呼唤人们通过音乐从人造的虚幻生活中解放自我。女孩Mary受到这个后启示录式的Woodstock音乐节的感召，离开了父母，前往Lifehouse。其父母Ray和Sally夫妇放弃了用于供给政府的土地，开车穿过英格兰中部满目疮痍的废墟，去寻找女儿。这就是歌词里的 “Sally, take my hand / We’ll travel south cross land”. </p><p>Bobby 将所有Lifehouse参与者的个人信息转化成了音乐，这样每个人都有一首属于自己的歌。故事的高潮来临于政府当局包围Lifehouse时，所有人的歌组合在一起，奏响了完美的音符，在场的所有观众和通过Lifesuits观看音乐会的人，都在这场音乐的涅槃中消失了。</p><p>结合这个夭折的摇滚歌剧的构想，我想Teenage Wasteland应该指的是文化与精神上的废土，歌曲指向的是穿越这片废土的精神朝圣之路。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Music </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+  
+  
+</search>

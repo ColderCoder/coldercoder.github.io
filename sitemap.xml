@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://coldercoder.github.io/Tech/move-wsl2/</loc>
+    
+    <lastmod>2021-01-24</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://coldercoder.github.io/Tech/ray/</loc>
     
     <lastmod>2021-01-24</lastmod>
@@ -12,13 +19,6 @@
     <loc>https://coldercoder.github.io/uncategorized/wsl-proxy/</loc>
     
     <lastmod>2021-01-22</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://coldercoder.github.io/Tech/move-wsl2/</loc>
-    
-    <lastmod>2021-01-18</lastmod>
     
   </url>
   

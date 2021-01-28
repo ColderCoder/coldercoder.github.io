@@ -2,14 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://coldercoder.github.io/Tech/ray/</loc>
+    <loc>https://coldercoder.github.io/Tech/wsl-proxy/</loc>
     
     <lastmod>2021-01-28</lastmod>
     
   </url>
   
   <url>
-    <loc>https://coldercoder.github.io/uncategorized/how2use-xray/</loc>
+    <loc>https://coldercoder.github.io/Tech/how2use-xray/</loc>
+    
+    <lastmod>2021-01-28</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://coldercoder.github.io/Tech/ray/</loc>
     
     <lastmod>2021-01-28</lastmod>
     
@@ -19,13 +26,6 @@
     <loc>https://coldercoder.github.io/Tech/move-wsl2/</loc>
     
     <lastmod>2021-01-24</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://coldercoder.github.io/uncategorized/wsl-proxy/</loc>
-    
-    <lastmod>2021-01-22</lastmod>
     
   </url>
   

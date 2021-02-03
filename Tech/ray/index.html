@@ -9,13 +9,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="2020-11-21更新：由于许可证争议，XTLS已从v2ray-core中移除，本教程换用TLS.2021-1-1更新：建议使用xray-core. 推荐阅读：小小白白话文2021-1-28更新：换用xray 安装之前 确保系统时间正确(对于VLESS来说非必需) 更新内核并开启BBR(强烈建议) 确保80与443端口是开放的 安装了curl与一款趁手的文本编辑器  安装xray-coreXra">
 <meta property="og:type" content="article">
-<meta property="og:title" content="安装xray服务端 XTLS 回落">
+<meta property="og:title" content="安装xray服务端  配置XTLS回落">
 <meta property="og:url" content="https://coldercoder.github.io/Tech/ray/">
-<meta property="og:site_name" content="ColderCoder&#39;s Blog">
+<meta property="og:site_name" content="Colder One">
 <meta property="og:description" content="2020-11-21更新：由于许可证争议，XTLS已从v2ray-core中移除，本教程换用TLS.2021-1-1更新：建议使用xray-core. 推荐阅读：小小白白话文2021-1-28更新：换用xray 安装之前 确保系统时间正确(对于VLESS来说非必需) 更新内核并开启BBR(强烈建议) 确保80与443端口是开放的 安装了curl与一款趁手的文本编辑器  安装xray-coreXra">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-01-27T11:10:57.000Z">
-<meta property="article:modified_time" content="2021-01-28T07:22:38.746Z">
+<meta property="article:modified_time" content="2021-02-03T16:20:14.228Z">
 <meta property="article:author" content="ColderCoder">
 <meta property="article:tag" content="GFW">
 <meta name="twitter:card" content="summary">
@@ -38,7 +38,7 @@
       
     
     <!-- title -->
-    <title>安装xray服务端 XTLS 回落</title>
+    <title>安装xray服务端  配置XTLS回落</title>
     <!-- styles -->
     
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/coldercoder/coldercoder.github.io/css/style.css">
@@ -95,16 +95,16 @@
     <div id="share" style="display: none">
       <ul>
   <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://coldercoder.github.io/Tech/ray/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://coldercoder.github.io/Tech/ray/&text=安装xray服务端 XTLS 回落"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://coldercoder.github.io/Tech/ray/&title=安装xray服务端 XTLS 回落"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://coldercoder.github.io/Tech/ray/&is_video=false&description=安装xray服务端 XTLS 回落"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=安装xray服务端 XTLS 回落&body=Check out this article: https://coldercoder.github.io/Tech/ray/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://coldercoder.github.io/Tech/ray/&title=安装xray服务端 XTLS 回落"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://coldercoder.github.io/Tech/ray/&title=安装xray服务端 XTLS 回落"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://coldercoder.github.io/Tech/ray/&title=安装xray服务端 XTLS 回落"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://coldercoder.github.io/Tech/ray/&title=安装xray服务端 XTLS 回落"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://coldercoder.github.io/Tech/ray/&name=安装xray服务端 XTLS 回落&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://coldercoder.github.io/Tech/ray/&t=安装xray服务端 XTLS 回落"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://coldercoder.github.io/Tech/ray/&text=安装xray服务端  配置XTLS回落"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://coldercoder.github.io/Tech/ray/&title=安装xray服务端  配置XTLS回落"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://coldercoder.github.io/Tech/ray/&is_video=false&description=安装xray服务端  配置XTLS回落"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=安装xray服务端  配置XTLS回落&body=Check out this article: https://coldercoder.github.io/Tech/ray/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://coldercoder.github.io/Tech/ray/&title=安装xray服务端  配置XTLS回落"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://coldercoder.github.io/Tech/ray/&title=安装xray服务端  配置XTLS回落"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://coldercoder.github.io/Tech/ray/&title=安装xray服务端  配置XTLS回落"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://coldercoder.github.io/Tech/ray/&title=安装xray服务端  配置XTLS回落"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://coldercoder.github.io/Tech/ray/&name=安装xray服务端  配置XTLS回落&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://coldercoder.github.io/Tech/ray/&t=安装xray服务端  配置XTLS回落"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -121,7 +121,7 @@
   <header>
     
     <h1 class="posttitle" itemprop="name headline">
-        安装xray服务端 XTLS 回落
+        安装xray服务端  配置XTLS回落
     </h1>
 
 
@@ -239,16 +239,16 @@
     <div id="share-footer" style="display: none">
       <ul>
   <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://coldercoder.github.io/Tech/ray/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://coldercoder.github.io/Tech/ray/&text=安装xray服务端 XTLS 回落"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://coldercoder.github.io/Tech/ray/&title=安装xray服务端 XTLS 回落"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://coldercoder.github.io/Tech/ray/&is_video=false&description=安装xray服务端 XTLS 回落"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=安装xray服务端 XTLS 回落&body=Check out this article: https://coldercoder.github.io/Tech/ray/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://coldercoder.github.io/Tech/ray/&title=安装xray服务端 XTLS 回落"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://coldercoder.github.io/Tech/ray/&title=安装xray服务端 XTLS 回落"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://coldercoder.github.io/Tech/ray/&title=安装xray服务端 XTLS 回落"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://coldercoder.github.io/Tech/ray/&title=安装xray服务端 XTLS 回落"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://coldercoder.github.io/Tech/ray/&name=安装xray服务端 XTLS 回落&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://coldercoder.github.io/Tech/ray/&t=安装xray服务端 XTLS 回落"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://coldercoder.github.io/Tech/ray/&text=安装xray服务端  配置XTLS回落"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://coldercoder.github.io/Tech/ray/&title=安装xray服务端  配置XTLS回落"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://coldercoder.github.io/Tech/ray/&is_video=false&description=安装xray服务端  配置XTLS回落"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=安装xray服务端  配置XTLS回落&body=Check out this article: https://coldercoder.github.io/Tech/ray/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://coldercoder.github.io/Tech/ray/&title=安装xray服务端  配置XTLS回落"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://coldercoder.github.io/Tech/ray/&title=安装xray服务端  配置XTLS回落"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://coldercoder.github.io/Tech/ray/&title=安装xray服务端  配置XTLS回落"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://coldercoder.github.io/Tech/ray/&title=安装xray服务端  配置XTLS回落"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://coldercoder.github.io/Tech/ray/&name=安装xray服务端  配置XTLS回落&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://coldercoder.github.io/Tech/ray/&t=安装xray服务端  配置XTLS回落"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>

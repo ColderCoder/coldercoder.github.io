@@ -29,7 +29,7 @@
     
     
     <entry>
-      <title>安装xray服务端 XTLS 回落</title>
+      <title>安装xray服务端  配置XTLS回落</title>
       <link href="Tech/ray/"/>
       <url>Tech/ray/</url>
       
@@ -69,6 +69,8 @@
       
       
         <tags>
+            
+            <tag> GFW </tag>
             
             <tag> trick </tag>
             
@@ -121,6 +123,8 @@
         <tags>
             
             <tag> 2020 </tag>
+            
+            <tag> life </tag>
             
         </tags>
       
@@ -409,7 +413,7 @@
       
         <tags>
             
-            <tag> Coding </tag>
+            <tag> trick </tag>
             
         </tags>
       

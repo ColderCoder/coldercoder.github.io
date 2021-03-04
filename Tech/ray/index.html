@@ -7,15 +7,15 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="google-site-verification" content="kLDn9a7ZvPJt3MBwafuCwGPkzsd3SRnOKYyfJlXBAWQ" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="2020-11-21更新：由于许可证争议，XTLS已从v2ray-core中移除，本教程换用TLS.2021-1-1更新：建议使用xray-core. 推荐阅读：小小白白话文2021-1-28更新：换用xray 安装之前 确保系统时间正确(对于VLESS来说非必需) 更新内核并开启BBR(强烈建议) 确保80与443端口是开放的 安装了curl与一款趁手的文本编辑器  安装xray-coreXra">
+    <meta name="description" content="2020-11-21更新：由于许可证争议，XTLS已从v2ray-core中移除，本教程换用TLS.2021-1-1更新：建议使用xray-core.2021-1-28更新：换用xray 注：本文仅作一个手动搭建的简单示范，不推荐用于生产环境。且本文不积极更新，任何内容均可能过时。对于新手，推荐阅读：小小白白话文 安装之前 确保系统时间正确(对于VLESS来说非必需) 更新内核并开启BBR(强烈建">
 <meta property="og:type" content="article">
 <meta property="og:title" content="安装xray服务端  配置XTLS回落">
 <meta property="og:url" content="https://coldercoder.github.io/Tech/ray/">
 <meta property="og:site_name" content="ColderOne">
-<meta property="og:description" content="2020-11-21更新：由于许可证争议，XTLS已从v2ray-core中移除，本教程换用TLS.2021-1-1更新：建议使用xray-core. 推荐阅读：小小白白话文2021-1-28更新：换用xray 安装之前 确保系统时间正确(对于VLESS来说非必需) 更新内核并开启BBR(强烈建议) 确保80与443端口是开放的 安装了curl与一款趁手的文本编辑器  安装xray-coreXra">
+<meta property="og:description" content="2020-11-21更新：由于许可证争议，XTLS已从v2ray-core中移除，本教程换用TLS.2021-1-1更新：建议使用xray-core.2021-1-28更新：换用xray 注：本文仅作一个手动搭建的简单示范，不推荐用于生产环境。且本文不积极更新，任何内容均可能过时。对于新手，推荐阅读：小小白白话文 安装之前 确保系统时间正确(对于VLESS来说非必需) 更新内核并开启BBR(强烈建">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-01-27T11:10:57.000Z">
-<meta property="article:modified_time" content="2021-02-03T16:40:46.070Z">
+<meta property="article:published_time" content="2021-01-28T11:10:57.000Z">
+<meta property="article:modified_time" content="2021-03-04T12:50:09.422Z">
 <meta property="article:author" content="ColderCoder">
 <meta property="article:tag" content="GFW">
 <meta name="twitter:card" content="summary">
@@ -78,10 +78,10 @@
     <span id="actions">
       <ul>
         
-        <li><a class="icon" href="/Tech/how2use-xray/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        <li><a class="icon" href="/Music/huanchao/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
-        <li><a class="icon" href="/Tech/wsl-proxy/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        <li><a class="icon" href="/Tech/how2use-xray/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
         <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
         <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
@@ -133,7 +133,7 @@
       
     <div class="postdate">
       
-        <time datetime="2021-01-27T11:10:57.000Z" itemprop="datePublished">2021-01-27</time>
+        <time datetime="2021-01-28T11:10:57.000Z" itemprop="datePublished">2021-01-28</time>
         
       
     </div>
@@ -158,7 +158,8 @@
   
 
   <div class="content" itemprop="articleBody">
-    <p>2020-11-21更新：由于<a target="_blank" rel="noopener" href="https://github.com/XTLS/Go/issues/9#issuecomment-731588021">许可证争议</a>，XTLS已从v2ray-core中移除，本教程换用TLS.<br>2021-1-1更新：建议使用<a target="_blank" rel="noopener" href="https://github.com/XTLS">xray-core</a>. 推荐阅读：<a target="_blank" rel="noopener" href="https://xtls.github.io/documents/level-0/">小小白白话文</a><br>2021-1-28更新：换用<a target="_blank" rel="noopener" href="https://xtls.github.io/">xray</a></p>
+    <p>2020-11-21更新：由于<a target="_blank" rel="noopener" href="https://github.com/XTLS/Go/issues/9#issuecomment-731588021">许可证争议</a>，XTLS已从v2ray-core中移除，本教程换用TLS.<br>2021-1-1更新：建议使用<a target="_blank" rel="noopener" href="https://github.com/XTLS">xray-core</a>.<br>2021-1-28更新：换用<a target="_blank" rel="noopener" href="https://xtls.github.io/">xray</a></p>
+<p>注：本文仅作一个手动搭建的简单示范，不推荐用于生产环境。且本文不积极更新，任何内容均可能过时。<br>对于新手，推荐阅读：<a target="_blank" rel="noopener" href="https://xtls.github.io/documents/level-0/">小小白白话文</a></p>
 <h2 id="安装之前"><a href="#安装之前" class="headerlink" title="安装之前"></a>安装之前</h2><ol>
 <li>确保系统时间正确(对于VLESS来说非必需)</li>
 <li>更新内核并开启BBR(强烈建议)</li>

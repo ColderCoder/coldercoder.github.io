@@ -15,7 +15,7 @@
 <meta property="og:description" content="什么是xray？由于许可证的争议，xtls从v2ray-core中移除，另立新项目xray.xray是v2ray的超集，支持xtls等许多新特性。 xray 并不是某种协议，而是支持多协议的平台，目前支持的有vless, vmess, trojan, shadowsocks, socks等。在vless与vmess协议下，有tcp, ws, kcp, h2, quic等传输协议。xray支持xtl">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-01-28T07:15:11.000Z">
-<meta property="article:modified_time" content="2021-01-28T07:57:48.714Z">
+<meta property="article:modified_time" content="2021-03-01T16:14:13.003Z">
 <meta property="article:author" content="ColderCoder">
 <meta property="article:tag" content="GFW">
 <meta name="twitter:card" content="summary">
@@ -78,10 +78,10 @@
     <span id="actions">
       <ul>
         
-        <li><a class="icon" href="/Music/huanchao/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        <li><a class="icon" href="/Tech/ray/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
-        <li><a class="icon" href="/Tech/ray/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        <li><a class="icon" href="/Tech/wsl-proxy/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
         <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
         <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
@@ -165,10 +165,8 @@
 <h3 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h3><p>以v2rayN为例。先去<a target="_blank" rel="noopener" href="https://github.com/2dust/v2rayN/releases">releases页面</a>下载最新的<code>v2rayN.zip</code>，另一个较大的是含v2ray-core的，不推荐。 </p>
 <p>解压v2rayN文件夹，再去<a target="_blank" rel="noopener" href="https://github.com/XTLS/Xray-core/releases">xray-core的releases页面</a>下载最新的<code>Xray-windows-64.zip</code>，将解压扔进v2rayN文件夹。</p>
 <p>防火墙什么的提示，同意就好了。Windows Defender可能报毒，忽略即可。参数设置-v2rayn设置，可以勾选开机自动启动。</p>
-<p>这么简单的界面不会有人不懂吧？</p>
-<p>添加完服务器后，在系统托盘右键v2rayN图标-http代理，推荐PAC模式。</p>
-<p>流量经过PAC分流之后，需要代理的交给<em>xray-core</em>, <em>xray-core</em>会再根据路由规则判断流量应该走代理还是直连。</p>
-<p>当有的流量你想走代理而实际没有时，可以暂时切换到全局模式（不经PAC直接交由xray-core判断）。你可以安装浏览器插件SwitchyOmega来对浏览器流量做更精细的控制。</p>
+<p><del>添加完服务器后，在系统托盘右键v2rayN图标-http代理，推荐PAC模式。</del><br><del>流量经过PAC分流之后，需要代理的交给<em>xray-core</em>, <em>xray-core</em>会再根据路由规则判断流量应该走代理还是直连。</del><br><del>当有的流量你想走代理而实际没有时，可以暂时切换到全局模式（不经PAC直接交由xray-core判断）。</del> 你可以安装浏览器插件SwitchyOmega来对浏览器流量做更精细的控制。</p>
+<p>新版v2rayN已取消PAC，并给出了Core类型选择。</p>
 <h3 id="Android"><a href="#Android" class="headerlink" title="Android"></a>Android</h3><p>推荐去v2rayNG的<a target="_blank" rel="noopener" href="https://github.com/2dust/v2rayNG/releases">releases页面</a>下载.</p>
 <p>v2rayNG使用<em>xray-core</em>. </p>
 <h3 id="iOS"><a href="#iOS" class="headerlink" title="iOS"></a>iOS</h3><p>请去非国区商店购买<code>Shadowrocket</code>(2.99 USD).</p>

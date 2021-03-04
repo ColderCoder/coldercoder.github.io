@@ -2,16 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://coldercoder.github.io/Music/huanchao/</loc>
+    <loc>https://coldercoder.github.io/Life/noobpoet/</loc>
     
-    <lastmod>2021-02-10</lastmod>
+    <lastmod>2021-03-04</lastmod>
     
   </url>
   
   <url>
     <loc>https://coldercoder.github.io/Tech/ray/</loc>
     
-    <lastmod>2021-02-03</lastmod>
+    <lastmod>2021-03-04</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://coldercoder.github.io/Tech/how2use-xray/</loc>
+    
+    <lastmod>2021-03-01</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://coldercoder.github.io/Music/huanchao/</loc>
+    
+    <lastmod>2021-02-10</lastmod>
     
   </url>
   
@@ -30,23 +44,9 @@
   </url>
   
   <url>
-    <loc>https://coldercoder.github.io/Tech/latex-workshop-config/</loc>
-    
-    <lastmod>2021-02-03</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://coldercoder.github.io/Tech/wsl-proxy/</loc>
     
     <lastmod>2021-02-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://coldercoder.github.io/Tech/how2use-xray/</loc>
-    
-    <lastmod>2021-01-28</lastmod>
     
   </url>
   
@@ -179,7 +179,7 @@
 
   <url>
     <loc>https://coldercoder.github.io/</loc>
-    <lastmod>2021-02-10</lastmod>
+    <lastmod>2021-03-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -187,49 +187,56 @@
   
   <url>
     <loc>https://coldercoder.github.io/tags/2020/</loc>
-    <lastmod>2021-02-10</lastmod>
+    <lastmod>2021-03-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://coldercoder.github.io/tags/life/</loc>
-    <lastmod>2021-02-10</lastmod>
+    <lastmod>2021-03-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://coldercoder.github.io/tags/GFW/</loc>
-    <lastmod>2021-02-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://coldercoder.github.io/tags/trick/</loc>
-    <lastmod>2021-02-10</lastmod>
+    <lastmod>2021-03-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://coldercoder.github.io/tags/music/</loc>
-    <lastmod>2021-02-10</lastmod>
+    <lastmod>2021-03-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://coldercoder.github.io/tags/trick/</loc>
+    <lastmod>2021-03-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://coldercoder.github.io/tags/poem/</loc>
+    <lastmod>2021-03-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://coldercoder.github.io/tags/heroku/</loc>
-    <lastmod>2021-02-10</lastmod>
+    <lastmod>2021-03-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://coldercoder.github.io/tags/event/</loc>
-    <lastmod>2021-02-10</lastmod>
+    <lastmod>2021-03-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -237,22 +244,22 @@
 
   
   <url>
-    <loc>https://coldercoder.github.io/categories/Life/</loc>
-    <lastmod>2021-02-10</lastmod>
+    <loc>https://coldercoder.github.io/categories/Music/</loc>
+    <lastmod>2021-03-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://coldercoder.github.io/categories/Music/</loc>
-    <lastmod>2021-02-10</lastmod>
+    <loc>https://coldercoder.github.io/categories/Life/</loc>
+    <lastmod>2021-03-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://coldercoder.github.io/categories/Tech/</loc>
-    <lastmod>2021-02-10</lastmod>
+    <lastmod>2021-03-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>

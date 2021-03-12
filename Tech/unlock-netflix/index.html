@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="google-site-verification" content="kLDn9a7ZvPJt3MBwafuCwGPkzsd3SRnOKYyfJlXBAWQ" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="摘要：借助xray&#x2F;v2ray的routing分流Netflix流量，使用Cloudflare WARP解锁Netflix. 若vps的ipv4无法解锁Netflix非自制剧，而ipv6支持，则仅需配置xray分流。若vps没有ipv6 ip或不解锁Netflix，可以借助WARP解锁。 配置分流配置双outbounds(ipv4&amp;ipv6)，并在routing设置中指定Netflix走i">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WARP 解锁Netflix">
+<meta property="og:url" content="https://coldercoder.github.io/Tech/unlock-netflix/">
+<meta property="og:site_name" content="ColderOne">
+<meta property="og:description" content="摘要：借助xray&#x2F;v2ray的routing分流Netflix流量，使用Cloudflare WARP解锁Netflix. 若vps的ipv4无法解锁Netflix非自制剧，而ipv6支持，则仅需配置xray分流。若vps没有ipv6 ip或不解锁Netflix，可以借助WARP解锁。 配置分流配置双outbounds(ipv4&amp;ipv6)，并在routing设置中指定Netflix走i">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-03-11T14:44:25.000Z">
+<meta property="article:modified_time" content="2021-03-12T08:19:50.470Z">
+<meta property="article:author" content="ColderCoder">
+<meta property="article:tag" content="Netflix">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/coldercoder/coldercoder.github.io/images/ColderCoder50.jpg">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/coldercoder/coldercoder.github.io/images/ColderCoder50.jpg" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="https://cdn.jsdelivr.net/gh/coldercoder/coldercoder.github.io/images/ColderCoder50.jpg">
+        
+      
+    
+    <!-- title -->
+    <title>WARP 解锁Netflix</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/coldercoder/coldercoder.github.io/css/style.css">
+
+    <!-- persian styles -->
+    
+      
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/coldercoder/coldercoder.github.io/css/rtl.css">
+
+    
+    <!-- rss -->
+    
+    
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/categories/">Category</a></li>
+         
+          <li><a href="/archives/">Archive</a></li>
+         
+          <li><a href="/about/">About</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/Life/noobpoet/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://coldercoder.github.io/Tech/unlock-netflix/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://coldercoder.github.io/Tech/unlock-netflix/&text=WARP 解锁Netflix"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://coldercoder.github.io/Tech/unlock-netflix/&title=WARP 解锁Netflix"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://coldercoder.github.io/Tech/unlock-netflix/&is_video=false&description=WARP 解锁Netflix"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=WARP 解锁Netflix&body=Check out this article: https://coldercoder.github.io/Tech/unlock-netflix/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://coldercoder.github.io/Tech/unlock-netflix/&title=WARP 解锁Netflix"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://coldercoder.github.io/Tech/unlock-netflix/&title=WARP 解锁Netflix"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://coldercoder.github.io/Tech/unlock-netflix/&title=WARP 解锁Netflix"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://coldercoder.github.io/Tech/unlock-netflix/&title=WARP 解锁Netflix"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://coldercoder.github.io/Tech/unlock-netflix/&name=WARP 解锁Netflix&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://coldercoder.github.io/Tech/unlock-netflix/&t=WARP 解锁Netflix"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E5%88%86%E6%B5%81"><span class="toc-number">1.</span> <span class="toc-text">配置分流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEWARP"><span class="toc-number">2.</span> <span class="toc-text">配置WARP</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85WireGuard"><span class="toc-number">2.1.</span> <span class="toc-text">安装WireGuard</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8wgcf%E7%94%9F%E6%88%90%E9%85%8D%E7%BD%AE"><span class="toc-number">2.2.</span> <span class="toc-text">使用wgcf生成配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEWARP%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8"><span class="toc-number">2.3.</span> <span class="toc-text">配置WARP开机启动</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        WARP 解锁Netflix
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">ColderCoder</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2021-03-11T14:44:25.000Z" itemprop="datePublished">2021-03-11</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/Tech/">Tech</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Netflix/" rel="tag">Netflix</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>摘要：借助xray/v2ray的routing分流Netflix流量，使用Cloudflare WARP解锁Netflix.</p>
+<p>若vps的ipv4无法解锁Netflix非自制剧，而ipv6支持，则仅需配置xray分流。若vps没有ipv6 ip或不解锁Netflix，可以借助WARP解锁。</p>
+<h2 id="配置分流"><a href="#配置分流" class="headerlink" title="配置分流"></a>配置分流</h2><p>配置双outbounds(ipv4&amp;ipv6)，并在routing设置中指定Netflix走ipv6. 配置geosite需要geosite.dat，如果没装会报错。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">  &quot;outbounds&quot;: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">&quot;tag&quot;</span>:<span class="string">&quot;IPv4_out&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;protocol&quot;</span>: <span class="string">&quot;freedom&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">&quot;tag&quot;</span>:<span class="string">&quot;IPv6_out&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;protocol&quot;</span>: <span class="string">&quot;freedom&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;settings&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;domainStrategy&quot;</span>: <span class="string">&quot;UseIPv6&quot;</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  &quot;routing&quot;: &#123;</span><br><span class="line">    &quot;rules&quot;: [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">&quot;type&quot;</span>: <span class="string">&quot;field&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;outboundTag&quot;</span>: <span class="string">&quot;IPv6_out&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;domain&quot;</span>: [<span class="string">&quot;geosite:netflix&quot;</span>]</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">&quot;type&quot;</span>: <span class="string">&quot;field&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;outboundTag&quot;</span>: <span class="string">&quot;IPv4_out&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;network&quot;</span>: <span class="string">&quot;udp,tcp&quot;</span></span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>以上仅指定netflix走ipv6，可根据自身需求添加（例如：ColoCrossing机房可以加入geosite:google来绕过谷歌搜索时弹出的人机验证）。多ipv6可以用<em>sendThrough</em>指定出口，详见<a target="_blank" rel="noopener" href="https://xtls.github.io/config/base/outbounds/">Outbounds配置</a></p>
+<p>拓展一下思路：outbounds亦可指定其他协议来连接到支持解锁的vps.</p>
+<p>参考文章：<a target="_blank" rel="noopener" href="https://toutyrater.github.io/app/netflix.html">v2ray白话文教程</a></p>
+<h2 id="配置WARP"><a href="#配置WARP" class="headerlink" title="配置WARP"></a>配置WARP</h2><p><a target="_blank" rel="noopener" href="https://blog.cloudflare.com/1111-warp-better-vpn/">WARP</a>是Cloudflare提供的VPN服务（注意，<a target="_blank" rel="noopener" href="https://developers.cloudflare.com/warp-client/warp-for-everyone">这项服务并不使你匿名</a>）。目前，WARP能够解锁接入地的Netflix。</p>
+<p>WARP基于Wireguard。</p>
+<h3 id="安装WireGuard"><a href="#安装WireGuard" class="headerlink" title="安装WireGuard"></a>安装WireGuard</h3><p>安装方式详见<a target="_blank" rel="noopener" href="https://www.wireguard.com/install/">WireGuard主页</a>. </p>
+<p>注意，Debian在安装前需要<a target="_blank" rel="noopener" href="https://backports.debian.org/Instructions/">启用backports</a></p>
+<h3 id="使用wgcf生成配置"><a href="#使用wgcf生成配置" class="headerlink" title="使用wgcf生成配置"></a>使用wgcf生成配置</h3><p>进入<a target="_blank" rel="noopener" href="https://github.com/ViRb3/wgcf">wgcf项目主页</a>，转到releases选择适用的二进制文件下载。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">chmod +x wgcf</span><br><span class="line">.&#x2F;wgcf register</span><br><span class="line">.&#x2F;wgcf generate</span><br></pre></td></tr></table></figure>
+
+<p>此时同目录下生成了wgcf-profile.conf</p>
+<p>我们需要删除这一行: AllowedIPs = 0.0.0.0/0，因为若wireguard同时接管ipv4和ipv6流量，我们便无法再连接到vps了。若想让wireguard接管ipv4，则删除AllowedIPs = ::/0</p>
+<p>应用这份wireguard配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wg-quick up wgcf-profile.conf</span><br></pre></td></tr></table></figure>
+
+<p>若报错，请正确配置resolvconf. 成功启动后，可以<code>ping ipv6.google.com</code> 来测试连通性。</p>
+<h3 id="配置WARP开机启动"><a href="#配置WARP开机启动" class="headerlink" title="配置WARP开机启动"></a>配置WARP开机启动</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cp wgcf-profile.conf &#x2F;etc&#x2F;wireguard&#x2F;wgcf.conf</span><br><span class="line">systemctl enable wg-quick@wgcf</span><br><span class="line">systemctl start wg-quick@wgcf</span><br></pre></td></tr></table></figure>
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/categories/">Category</a></li>
+         
+          <li><a href="/archives/">Archive</a></li>
+         
+          <li><a href="/about/">About</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E5%88%86%E6%B5%81"><span class="toc-number">1.</span> <span class="toc-text">配置分流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEWARP"><span class="toc-number">2.</span> <span class="toc-text">配置WARP</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85WireGuard"><span class="toc-number">2.1.</span> <span class="toc-text">安装WireGuard</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8wgcf%E7%94%9F%E6%88%90%E9%85%8D%E7%BD%AE"><span class="toc-number">2.2.</span> <span class="toc-text">使用wgcf生成配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEWARP%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8"><span class="toc-number">2.3.</span> <span class="toc-text">配置WARP开机启动</span></a></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://coldercoder.github.io/Tech/unlock-netflix/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://coldercoder.github.io/Tech/unlock-netflix/&text=WARP 解锁Netflix"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://coldercoder.github.io/Tech/unlock-netflix/&title=WARP 解锁Netflix"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://coldercoder.github.io/Tech/unlock-netflix/&is_video=false&description=WARP 解锁Netflix"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=WARP 解锁Netflix&body=Check out this article: https://coldercoder.github.io/Tech/unlock-netflix/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://coldercoder.github.io/Tech/unlock-netflix/&title=WARP 解锁Netflix"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://coldercoder.github.io/Tech/unlock-netflix/&title=WARP 解锁Netflix"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://coldercoder.github.io/Tech/unlock-netflix/&title=WARP 解锁Netflix"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://coldercoder.github.io/Tech/unlock-netflix/&title=WARP 解锁Netflix"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://coldercoder.github.io/Tech/unlock-netflix/&name=WARP 解锁Netflix&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://coldercoder.github.io/Tech/unlock-netflix/&t=WARP 解锁Netflix"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2018-2021
+    ColderCoder
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/categories/">Category</a></li>
+         
+          <li><a href="/archives/">Archive</a></li>
+         
+          <li><a href="/about/">About</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/coldercoder/coldercoder.github.io/lib/font-awesome/css/all.min.css">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/coldercoder/coldercoder.github.io/lib/justified-gallery/css/justifiedGallery.min.css">
+
+
+    <!-- jquery -->
+
+<script src="https://cdn.jsdelivr.net/gh/coldercoder/coldercoder.github.io/lib/jquery/jquery.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/gh/coldercoder/coldercoder.github.io/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+
+<!-- clipboard -->
+
+  
+<script src="https://cdn.jsdelivr.net/gh/coldercoder/coldercoder.github.io/lib/clipboard/clipboard.min.js"></script>
+
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="https://cdn.jsdelivr.net/gh/coldercoder/coldercoder.github.io/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PKMLYZ9MYX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-PKMLYZ9MYX');
+    </script>
+
+<!-- Baidu Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'colderblog';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+
+</body>
+</html>

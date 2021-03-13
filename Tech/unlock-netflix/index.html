@@ -7,15 +7,15 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="google-site-verification" content="kLDn9a7ZvPJt3MBwafuCwGPkzsd3SRnOKYyfJlXBAWQ" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="摘要：借助xray&#x2F;v2ray的routing分流Netflix流量，使用Cloudflare WARP解锁Netflix. 若vps的ipv4无法解锁Netflix非自制剧，而ipv6支持，则仅需配置xray分流。若vps没有ipv6 ip或不解锁Netflix，可以借助WARP解锁。 配置分流配置双outbounds(ipv4&amp;ipv6)，并在routing设置中指定Netflix走i">
+    <meta name="description" content="摘要：借助xray&#x2F;v2ray的路由规则分流Netflix流量，使用Cloudflare WARP解锁Netflix. 若vps的ipv4无法解锁Netflix非自制剧，而ipv6支持，则仅需配置xray分流。若vps没有ipv6 ip或不解锁Netflix，可以借助WARP解锁。 配置分流配置双outbounds(ipv4&amp;ipv6)，并在routing设置中指定Netflix走ipv6">
 <meta property="og:type" content="article">
 <meta property="og:title" content="WARP 解锁Netflix">
 <meta property="og:url" content="https://coldercoder.github.io/Tech/unlock-netflix/">
 <meta property="og:site_name" content="ColderOne">
-<meta property="og:description" content="摘要：借助xray&#x2F;v2ray的routing分流Netflix流量，使用Cloudflare WARP解锁Netflix. 若vps的ipv4无法解锁Netflix非自制剧，而ipv6支持，则仅需配置xray分流。若vps没有ipv6 ip或不解锁Netflix，可以借助WARP解锁。 配置分流配置双outbounds(ipv4&amp;ipv6)，并在routing设置中指定Netflix走i">
+<meta property="og:description" content="摘要：借助xray&#x2F;v2ray的路由规则分流Netflix流量，使用Cloudflare WARP解锁Netflix. 若vps的ipv4无法解锁Netflix非自制剧，而ipv6支持，则仅需配置xray分流。若vps没有ipv6 ip或不解锁Netflix，可以借助WARP解锁。 配置分流配置双outbounds(ipv4&amp;ipv6)，并在routing设置中指定Netflix走ipv6">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-03-11T14:44:25.000Z">
-<meta property="article:modified_time" content="2021-03-12T08:50:09.522Z">
+<meta property="article:modified_time" content="2021-03-13T11:01:58.411Z">
 <meta property="article:author" content="ColderCoder">
 <meta property="article:tag" content="Netflix">
 <meta name="twitter:card" content="summary">
@@ -156,7 +156,7 @@
   
 
   <div class="content" itemprop="articleBody">
-    <p>摘要：借助xray/v2ray的routing分流Netflix流量，使用Cloudflare WARP解锁Netflix.</p>
+    <p>摘要：借助xray/v2ray的路由规则分流Netflix流量，使用Cloudflare WARP解锁Netflix.</p>
 <p>若vps的ipv4无法解锁Netflix非自制剧，而ipv6支持，则仅需配置xray分流。若vps没有ipv6 ip或不解锁Netflix，可以借助WARP解锁。</p>
 <h2 id="配置分流"><a href="#配置分流" class="headerlink" title="配置分流"></a>配置分流</h2><p>配置双outbounds(ipv4&amp;ipv6)，并在routing设置中指定Netflix走ipv6. 配置geosite需要geosite.dat，如果没装会报错。</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&quot;outbounds&quot;: [</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">&quot;tag&quot;</span>:<span class="string">&quot;IPv4_out&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;protocol&quot;</span>: <span class="string">&quot;freedom&quot;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">&quot;tag&quot;</span>:<span class="string">&quot;IPv6_out&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;protocol&quot;</span>: <span class="string">&quot;freedom&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;settings&quot;</span>: &#123;</span><br><span class="line">      <span class="attr">&quot;domainStrategy&quot;</span>: <span class="string">&quot;UseIPv6&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">],</span><br><span class="line">&quot;routing&quot;: &#123;</span><br><span class="line">  &quot;rules&quot;: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">&quot;type&quot;</span>: <span class="string">&quot;field&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;outboundTag&quot;</span>: <span class="string">&quot;IPv6_out&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;domain&quot;</span>: [<span class="string">&quot;geosite:netflix&quot;</span>]</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">&quot;type&quot;</span>: <span class="string">&quot;field&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;outboundTag&quot;</span>: <span class="string">&quot;IPv4_out&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;network&quot;</span>: <span class="string">&quot;udp,tcp&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>

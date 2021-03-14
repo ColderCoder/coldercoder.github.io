@@ -15,7 +15,7 @@
 <meta property="og:description" content="什么是xray？由于许可证的争议，xtls从v2ray-core中移除，另立新项目xray.xray是v2ray的超集，支持xtls等许多新特性。 xray 并不是某种协议，而是支持多协议的平台，目前支持的有vless, vmess, trojan, shadowsocks, socks等。在vless与vmess协议下，有tcp, ws, kcp, h2, quic等传输协议。xray支持xtl">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-01-28T07:15:11.000Z">
-<meta property="article:modified_time" content="2021-03-01T16:14:13.003Z">
+<meta property="article:modified_time" content="2021-03-14T15:56:24.679Z">
 <meta property="article:author" content="ColderCoder">
 <meta property="article:tag" content="GFW">
 <meta name="twitter:card" content="summary">
@@ -162,15 +162,17 @@
 <p>xray 并不是某种协议，而是支持多协议的平台，目前支持的有vless, vmess, trojan, shadowsocks, socks等。在vless与vmess协议下，有tcp, ws, kcp, h2, quic等传输协议。xray支持<strong>xtls</strong>作为底层传输安全，此时，流控(flow)建议选择<em>splice</em>，windows不支持<em>splice</em>，可选择<em>direct</em>。</p>
 <h2 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h2><h3 id="为什么要使用客户端？"><a href="#为什么要使用客户端？" class="headerlink" title="为什么要使用客户端？"></a>为什么要使用客户端？</h3><p>要实现功能，只要有<em>xray-core</em>一个二进制文件，和一个配置文件就行了。GUI客户端做的工作是帮助你编写/修改/切换配置文件，以及配置系统代理等等。</p>
 <h3 id="GitHub下载太慢了怎么办"><a href="#GitHub下载太慢了怎么办" class="headerlink" title="GitHub下载太慢了怎么办"></a>GitHub下载太慢了怎么办</h3><p>releases页面，右键点击你想要下载的文件-复制下载链接，在下载链接前面加<code>https://ghproxy.com/</code>就行。如果还不明白，看<a target="_blank" rel="noopener" href="https://ghproxy.com/">这里</a>。</p>
-<h3 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h3><p>以v2rayN为例。先去<a target="_blank" rel="noopener" href="https://github.com/2dust/v2rayN/releases">releases页面</a>下载最新的<code>v2rayN.zip</code>，另一个较大的是含v2ray-core的，不推荐。 </p>
-<p>解压v2rayN文件夹，再去<a target="_blank" rel="noopener" href="https://github.com/XTLS/Xray-core/releases">xray-core的releases页面</a>下载最新的<code>Xray-windows-64.zip</code>，将解压扔进v2rayN文件夹。</p>
+<h3 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h3><p>以v2rayN为例。先去<a target="_blank" rel="noopener" href="https://github.com/2dust/v2rayN/releases">releases页面</a>下载最新的<code>v2rayN.zip</code>，并解压。在设置-参数设置-v2rayN设置中，选择Core类型为<em>Xray_core</em>.</p>
+<p>你可以去<a target="_blank" rel="noopener" href="https://github.com/XTLS/Xray-core/releases">xray-core的releases页面</a>下载最新的<code>Xray-windows-64.zip</code>，解压扔进v2rayN文件夹，也可以在菜单栏中检查更新-Xray_core.</p>
 <p>防火墙什么的提示，同意就好了。Windows Defender可能报毒，忽略即可。参数设置-v2rayn设置，可以勾选开机自动启动。</p>
 <p><del>添加完服务器后，在系统托盘右键v2rayN图标-http代理，推荐PAC模式。</del><br><del>流量经过PAC分流之后，需要代理的交给<em>xray-core</em>, <em>xray-core</em>会再根据路由规则判断流量应该走代理还是直连。</del><br><del>当有的流量你想走代理而实际没有时，可以暂时切换到全局模式（不经PAC直接交由xray-core判断）。</del> 你可以安装浏览器插件SwitchyOmega来对浏览器流量做更精细的控制。</p>
-<p>新版v2rayN已取消PAC，并给出了Core类型选择。</p>
+<p>新版v2rayN已取消PAC，仅通过core的路由功能实现分流。路由有三种策略：代理(proxy)，直连(direct)，阻止(block)。路由规则文件<code>geosite.dat</code>和<code>geoip.dat</code>，由社区维护，默认随Core一并更新。你可以在路由规则调用geosite与geoip规则，也可自行指定domain与ip. </p>
+<p>因为网络环境的复杂性与个人需求的多样性，不存在一个适合所有人的规则集。就最低限度(被封锁)来说，一个规则文件无法涵盖所有，亦无法保证时效性与精确性。所以有“白名单”与“黑名单”的概念：白名单规定有限的集合采取直连策略，剩余未规定的一律代理；黑名单反之。</p>
+<p>如果你不知道从何开始，建议打开路由设置-勾选启用路由高级功能，高级功能-添加规则集，在订阅地址中填入<code>https://raw.githubusercontent.com/2dust/v2rayCustomRoutingList/master/custom_routing_rules_whitelist</code>, 点击导入规则-从订阅URL中导入规则。<br>你需要点开第三行，将geosite:apple-cn和geosite:google-cn改为geosite:apple@cn和geosite:google@cn, 个人建议加入geosite:steam@cn, 使你能直连steam在大陆的CDN节点。确认后，右键-设为活动路由。</p>
 <h3 id="Android"><a href="#Android" class="headerlink" title="Android"></a>Android</h3><p>推荐去v2rayNG的<a target="_blank" rel="noopener" href="https://github.com/2dust/v2rayNG/releases">releases页面</a>下载.</p>
-<p>v2rayNG使用<em>xray-core</em>. </p>
-<h3 id="iOS"><a href="#iOS" class="headerlink" title="iOS"></a>iOS</h3><p>请去非国区商店购买<code>Shadowrocket</code>(2.99 USD).</p>
-<p>友情提示，身处大陆的用户用外区账号登录AppStore下载应用即可，不要登陆iCloud，否则封号(by Apple)</p>
+<p>v2rayNG使用<em>xray-core</em>.</p>
+<h3 id="iOS"><a href="#iOS" class="headerlink" title="iOS"></a>iOS</h3><p>请去非国区商店购买<em>Shadowrocket</em>(2.99 USD). Shadowrocket可能不支持xray的最新特性。</p>
+<p>友情提示：身处大陆的用户用外区账号登录AppStore下载应用即可，不要登陆iCloud，否则封号(by Apple)</p>
 <h3 id="macOS"><a href="#macOS" class="headerlink" title="macOS"></a>macOS</h3><p>推荐使用<a target="_blank" rel="noopener" href="https://github.com/Qv2ray/Qv2ray">Qv2ray</a></p>
 <h3 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h3><p>正如我一开始说的，你只需要安装一个core，写一个config就行，然后export http_proxy就差不多能用了。但你仍然可以借助图形客户端，如: <a target="_blank" rel="noopener" href="https://github.com/v2rayA/v2rayA">v2rayA</a>和上面提及的Qv2ray.</p>
 <h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>上面只是举例了几个客户端，你可自行探索其他。</p>

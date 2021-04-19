@@ -15,7 +15,7 @@
 <meta property="og:description" content="什么是xray？由于许可证的争议，xtls从v2ray-core中移除，另立新项目xray.xray是v2ray的超集，支持xtls等许多新特性。 xray 并不是某种协议，而是支持多协议的平台，目前支持的有vless,vmess,trojan,shadowsocks,socks等。在vless与vmess协议下，可选tcp, ws, kcp, h2, quic等传输协议。xray支持xtls作为">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-01-28T07:15:11.000Z">
-<meta property="article:modified_time" content="2021-04-15T15:37:09.632Z">
+<meta property="article:modified_time" content="2021-04-19T12:59:24.236Z">
 <meta property="article:author" content="ColderCoder">
 <meta property="article:tag" content="GFW">
 <meta name="twitter:card" content="summary">
@@ -165,7 +165,7 @@
 <h3 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h3><p>以v2rayN为例。先去<a target="_blank" rel="noopener" href="https://github.com/2dust/v2rayN/releases">releases页面</a>下载最新的<code>v2rayN.zip</code>，并解压。在设置-参数设置-v2rayN设置中，选择Core类型为<em>Xray_core</em>.</p>
 <p>你可以去<a target="_blank" rel="noopener" href="https://github.com/XTLS/Xray-core/releases">xray-core的releases页面</a>下载最新的<code>Xray-windows-64.zip</code>，解压扔进v2rayN文件夹，也可以在菜单栏中检查更新-Xray_core.</p>
 <p>防火墙什么的提示，同意就好了。Windows Defender可能报毒，忽略即可。参数设置-v2rayn设置，可以勾选开机自动启动。</p>
-<p><del>添加完服务器后，在系统托盘右键v2rayN图标-http代理，推荐PAC模式。</del><br><del>流量经过PAC分流之后，需要代理的交给<em>xray-core</em>, <em>xray-core</em>会再根据路由规则判断流量应该走代理还是直连。</del><br><del>当有的流量你想走代理而实际没有时，可以暂时切换到全局模式（不经PAC直接交由xray-core判断）。</del> 你可以安装浏览器插件SwitchyOmega来对浏览器流量做更精细的控制。</p>
+<p><del>添加完服务器后，在系统托盘右键v2rayN图标-http代理，推荐PAC模式。</del><br><del>流量经过PAC分流之后，需要代理的交给<em>xray-core</em>, <em>xray-core</em>会再根据路由规则判断流量应该走代理还是直连。</del><br><del>当有的流量你想走代理而实际没有时，可以暂时切换到全局模式（不经PAC直接交由xray-core判断）。</del>（v2rayN已弃用PAC）<br>你可以安装浏览器插件SwitchyOmega来对浏览器流量做更精细的控制。</p>
 <p>新版v2rayN已取消PAC，仅通过core的路由功能实现分流。路由有三种策略：代理(proxy)，直连(direct)，阻止(block)。路由规则文件<code>geosite.dat</code>和<code>geoip.dat</code>，由社区维护，默认随Core一并更新。你可以在路由规则调用geosite与geoip规则，也可自行指定domain与ip. </p>
 <p>因为网络环境的复杂性与个人需求的多样性，不存在一个适合所有人的规则集。就最低限度(被封锁)来说，一个规则文件无法涵盖所有，亦无法保证时效性与精确性。所以有“白名单”与“黑名单”的概念：白名单规定有限的集合采取直连策略，剩余未规定的一律代理；黑名单反之。</p>
 <p>如果你不知道从何开始，建议打开路由设置-勾选启用路由高级功能，高级功能-添加规则集，在订阅地址中填入<br><a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/2dust/v2rayCustomRoutingList/master/custom_routing_rules_whitelist">https://raw.githubusercontent.com/2dust/v2rayCustomRoutingList/master/custom_routing_rules_whitelist</a>,<br>点击导入规则-从订阅URL中导入规则。<br>点开第三行，个人建议加入geosite:steam@cn, 使你能直连steam在大陆的CDN节点。确认后，右键-设为活动路由。</p>

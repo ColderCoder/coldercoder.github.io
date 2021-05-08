@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>网络不通即重启的方法</title>
+      <link href="Tech/ping-reboot/"/>
+      <url>Tech/ping-reboot/</url>
+      
+        <content type="html"><![CDATA[<p>以root登录， crontab -e 添加以下条目：</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*/1 * * * * ping -c1 -w1 1.1.1.1 || (<span class="built_in">echo</span> $(date  +%y-%m-%d/%H:%M) &gt;&gt; /root/fail.log &amp;&amp; reboot)</span><br></pre></td></tr></table></figure><p>释义：每分钟执行一次，若ping不通某地址，则向/root/fail.log写当前时间，并重启。</p><p>-c1参数是只ping一次，-w1参数是设置一秒超时，后面的1.1.1.1可以换作任何地址。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Tech </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>5分钟搭建Searx搜索引擎</title>
       <link href="Tech/searx/"/>
       <url>Tech/searx/</url>

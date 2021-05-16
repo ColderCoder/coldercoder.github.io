@@ -235,6 +235,13 @@
   </url>
   
   <url>
+    <loc>https://coldercoder.github.io/tags/bbs/</loc>
+    <lastmod>2021-05-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://coldercoder.github.io/tags/GFW/</loc>
     <lastmod>2021-05-16</lastmod>
     <changefreq>daily</changefreq>
@@ -263,14 +270,14 @@
   </url>
   
   <url>
-    <loc>https://coldercoder.github.io/tags/SearX/</loc>
+    <loc>https://coldercoder.github.io/tags/heroku/</loc>
     <lastmod>2021-05-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://coldercoder.github.io/tags/heroku/</loc>
+    <loc>https://coldercoder.github.io/tags/SearX/</loc>
     <lastmod>2021-05-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -284,21 +291,14 @@
   </url>
   
   <url>
-    <loc>https://coldercoder.github.io/tags/event/</loc>
-    <lastmod>2021-05-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://coldercoder.github.io/tags/bbs/</loc>
-    <lastmod>2021-05-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://coldercoder.github.io/tags/thoughts/</loc>
+    <lastmod>2021-05-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://coldercoder.github.io/tags/event/</loc>
     <lastmod>2021-05-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

@@ -10,7 +10,7 @@
     <meta name="description" content="摘要：借助xray&#x2F;v2ray的路由规则分流Netflix流量，使用Cloudflare WARP解锁Netflix. 若vps的ipv4无法解锁Netflix非自制剧，而ipv6支持，则仅需配置xray分流。若vps没有ipv6 ip或不解锁Netflix，可以借助WARP解锁。 配置分流配置双outbounds(ipv4&amp;ipv6)，并在routing设置中指定Netflix走ipv6">
 <meta property="og:type" content="article">
 <meta property="og:title" content="WARP 解锁Netflix">
-<meta property="og:url" content="https://coldercoder.github.io/Tech/unlock-netflix/">
+<meta property="og:url" content="https://colder.one/Tech/unlock-netflix/">
 <meta property="og:site_name" content="ColderOne">
 <meta property="og:description" content="摘要：借助xray&#x2F;v2ray的路由规则分流Netflix流量，使用Cloudflare WARP解锁Netflix. 若vps的ipv4无法解锁Netflix非自制剧，而ipv6支持，则仅需配置xray分流。若vps没有ipv6 ip或不解锁Netflix，可以借助WARP解锁。 配置分流配置双outbounds(ipv4&amp;ipv6)，并在routing设置中指定Netflix走ipv6">
 <meta property="og:locale" content="en_US">
@@ -94,17 +94,17 @@
     <br/>
     <div id="share" style="display: none">
       <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://coldercoder.github.io/Tech/unlock-netflix/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://coldercoder.github.io/Tech/unlock-netflix/&text=WARP 解锁Netflix"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://coldercoder.github.io/Tech/unlock-netflix/&title=WARP 解锁Netflix"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://coldercoder.github.io/Tech/unlock-netflix/&is_video=false&description=WARP 解锁Netflix"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=WARP 解锁Netflix&body=Check out this article: https://coldercoder.github.io/Tech/unlock-netflix/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://coldercoder.github.io/Tech/unlock-netflix/&title=WARP 解锁Netflix"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://coldercoder.github.io/Tech/unlock-netflix/&title=WARP 解锁Netflix"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://coldercoder.github.io/Tech/unlock-netflix/&title=WARP 解锁Netflix"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://coldercoder.github.io/Tech/unlock-netflix/&title=WARP 解锁Netflix"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://coldercoder.github.io/Tech/unlock-netflix/&name=WARP 解锁Netflix&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://coldercoder.github.io/Tech/unlock-netflix/&t=WARP 解锁Netflix"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://colder.one/Tech/unlock-netflix/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://colder.one/Tech/unlock-netflix/&text=WARP 解锁Netflix"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://colder.one/Tech/unlock-netflix/&title=WARP 解锁Netflix"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://colder.one/Tech/unlock-netflix/&is_video=false&description=WARP 解锁Netflix"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=WARP 解锁Netflix&body=Check out this article: https://colder.one/Tech/unlock-netflix/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://colder.one/Tech/unlock-netflix/&title=WARP 解锁Netflix"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://colder.one/Tech/unlock-netflix/&title=WARP 解锁Netflix"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://colder.one/Tech/unlock-netflix/&title=WARP 解锁Netflix"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://colder.one/Tech/unlock-netflix/&title=WARP 解锁Netflix"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://colder.one/Tech/unlock-netflix/&name=WARP 解锁Netflix&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://colder.one/Tech/unlock-netflix/&t=WARP 解锁Netflix"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -215,17 +215,17 @@
 
     <div id="share-footer" style="display: none">
       <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://coldercoder.github.io/Tech/unlock-netflix/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://coldercoder.github.io/Tech/unlock-netflix/&text=WARP 解锁Netflix"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://coldercoder.github.io/Tech/unlock-netflix/&title=WARP 解锁Netflix"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://coldercoder.github.io/Tech/unlock-netflix/&is_video=false&description=WARP 解锁Netflix"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=WARP 解锁Netflix&body=Check out this article: https://coldercoder.github.io/Tech/unlock-netflix/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://coldercoder.github.io/Tech/unlock-netflix/&title=WARP 解锁Netflix"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://coldercoder.github.io/Tech/unlock-netflix/&title=WARP 解锁Netflix"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://coldercoder.github.io/Tech/unlock-netflix/&title=WARP 解锁Netflix"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://coldercoder.github.io/Tech/unlock-netflix/&title=WARP 解锁Netflix"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://coldercoder.github.io/Tech/unlock-netflix/&name=WARP 解锁Netflix&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://coldercoder.github.io/Tech/unlock-netflix/&t=WARP 解锁Netflix"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://colder.one/Tech/unlock-netflix/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://colder.one/Tech/unlock-netflix/&text=WARP 解锁Netflix"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://colder.one/Tech/unlock-netflix/&title=WARP 解锁Netflix"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://colder.one/Tech/unlock-netflix/&is_video=false&description=WARP 解锁Netflix"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=WARP 解锁Netflix&body=Check out this article: https://colder.one/Tech/unlock-netflix/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://colder.one/Tech/unlock-netflix/&title=WARP 解锁Netflix"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://colder.one/Tech/unlock-netflix/&title=WARP 解锁Netflix"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://colder.one/Tech/unlock-netflix/&title=WARP 解锁Netflix"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://colder.one/Tech/unlock-netflix/&title=WARP 解锁Netflix"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://colder.one/Tech/unlock-netflix/&name=WARP 解锁Netflix&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://colder.one/Tech/unlock-netflix/&t=WARP 解锁Netflix"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>

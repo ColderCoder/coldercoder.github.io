@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://coldercoder.github.io/Tech/flarum/</loc>
+    
+    <lastmod>2021-05-16</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://coldercoder.github.io/Life/thoughts1/</loc>
+    
+    <lastmod>2021-05-16</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://coldercoder.github.io/Tech/ping-reboot/</loc>
     
     <lastmod>2021-05-08</lastmod>
@@ -271,6 +285,20 @@
   
   <url>
     <loc>https://coldercoder.github.io/tags/event/</loc>
+    <lastmod>2021-05-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://coldercoder.github.io/tags/bbs/</loc>
+    <lastmod>2021-05-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://coldercoder.github.io/tags/thoughts/</loc>
     <lastmod>2021-05-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
